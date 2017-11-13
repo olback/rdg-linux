@@ -1,0 +1,2 @@
+# rdg-linux
+rdesktop gui
