@@ -54,3 +54,6 @@ dkms.conf
 # VS Code
 .vscode/
 .vscode/*
+
+# Compiled resources
+src/resources.c
