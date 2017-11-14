@@ -9,7 +9,7 @@
 #include <gtk/gtk.h>
 
 // Global variables bla bla don't care.
-char ip[15];
+char ip[16];
 char port[5];
 char keymap[5];
 char width[4];
@@ -27,7 +27,7 @@ GtkBuilder  *builder;
 GtkWidget   *window;
 GtkWidget   *dialog;
 
-GtkEntry    *ipEntry;
+GtkEntry    *ipEntryA; // "ipEntry" is pre-defined on some systems. Thanks dad :)
 GtkEntry    *portEntry;
 GtkEntry    *widthEntry;
 GtkEntry    *heightEntry;

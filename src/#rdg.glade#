@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.20.1 
+
+Copyright (C) 
+
+This file is part of rdg.
+
+rdg is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+rdg is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with rdg.  If not, see <http://www.gnu.org/licenses/>.
+
+Authors:
+olback
+github.com/olback/rdg-linux
+
+-->
+<interface>
+  <requires lib="gtk+" version="3.20"/>
+  <!-- interface-license-type gplv3 -->
+  <!-- interface-name rdg -->
+  <!-- interface-description Front-End for rdesktop -->
+  <!-- interface-authors olback\ngithub.com/olback/rdg-linux -->
+  <object class="GtkWindow" id="dialog">
+    <property name="width_request">440</property>
+    <property name="height_request">120</property>
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Extra rdesktop agruments</property>
+    <property name="resizable">False</property>
+    <property name="modal">True</property>
+    <property name="default_width">440</property>
+    <property name="default_height">120</property>
+    <property name="destroy_with_parent">True</property>
+    <property name="skip_taskbar_hint">True</property>
+    <property name="deletable">False</property>
+    <child>
+      <object class="GtkFixed">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="width_request">261</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_left">10</property>
+            <property name="label" translatable="yes">Extra rdesktop command line arguments:</property>
+          </object>
+          <packing>
+            <property name="y">10</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="extraArgs">
+            <property name="width_request">426</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="margin_left">7</property>
+          </object>
+          <packing>
+            <property name="y">40</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton">
+            <property name="label" translatable="yes">OK</property>
+            <property name="width_request">100</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="clicked" handler="closeDialog" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">333</property>
+            <property name="y">80</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+    <child>
+      <placeholder/>
+    </child>
+  </object>
+  <object class="GtkImage" id="image1">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-add</property>
+  </object>
+  <object class="GtkWindow" id="main">
+    <property name="name">main</property>
+    <property name="width_request">314</property>
+    <property name="height_request">370</property>
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">rdg</property>
+    <property name="resizable">False</property>
+    <property name="icon">resource:///net/olback/rdg/src/icon.png</property>
+    <child>
+      <object class="GtkFixed">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GtkComboBoxText" id="keymap">
+            <property name="width_request">100</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_left">7</property>
+            <property name="tearoff_title" translatable="yes">lel</property>
+            <property name="active_id">0</property>
+            <items>
+              <item id="0" translatable="yes">en-us</item>
+              <item translatable="yes">sv-se</item>
+              <item translatable="yes">en-gb</item>
+            </items>
+            <signal name="changed" handler="setKeymap" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">200</property>
+            <property name="y">40</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="port">
+            <property name="width_request">58</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="tooltip_text" translatable="yes">Remote RDP port. Default is 3389.</property>
+            <property name="max_length">5</property>
+            <property name="width_chars">5</property>
+            <property name="max_width_chars">5</property>
+            <property name="text" translatable="yes">3389</property>
+            <property name="caps_lock_warning">False</property>
+            <property name="placeholder_text" translatable="yes">3389</property>
+            <property name="input_purpose">digits</property>
+          </object>
+          <packing>
+            <property name="x">144</property>
+            <property name="y">40</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="keymapLabel">
+            <property name="width_request">-1</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_left">10</property>
+            <property name="label" translatable="yes">Keymap:</property>
+          </object>
+          <packing>
+            <property name="x">200</property>
+            <property name="y">10</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="ipLabel">
+            <property name="width_request">-1</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_left">10</property>
+            <property name="label" translatable="yes">Server IP : port</property>
+          </object>
+          <packing>
+            <property name="y">10</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="ip">
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="tooltip_text" translatable="yes">The IP address to your target.</property>
+            <property name="margin_left">7</property>
+            <property name="max_length">15</property>
+            <property name="width_chars">14</property>
+            <property name="max_width_chars">15</property>
+            <property name="placeholder_text" translatable="yes">192.168.0.15</property>
+          </object>
+          <packing>
+            <property name="y">40</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="colon">
+            <property name="width_request">-1</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">:</property>
+            <property name="width_chars">1</property>
+          </object>
+          <packing>
+            <property name="x">137</property>
+            <property name="y">40</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="usernameLabel">
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_left">10</property>
+            <property name="label" translatable="yes">Username:</property>
+          </object>
+          <packing>
+            <property name="y">120</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="username">
+            <property name="width_request">300</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="tooltip_text" translatable="yes">Your remote username.</property>
+            <property name="margin_left">7</property>
+          </object>
+          <packing>
+            <property name="y">150</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="domainLabel">
+            <property name="width_request">-1</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_left">10</property>
+            <property name="label" translatable="yes">Domain:</property>
+          </object>
+          <packing>
+            <property name="y">190</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="domain">
+            <property name="width_request">300</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="tooltip_text" translatable="yes">If the user is in a domain, you might have to enter the domain here.</property>
+            <property name="margin_left">7</property>
+          </object>
+          <packing>
+            <property name="y">220</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="passwordLabel">
+            <property name="width_request">-1</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_left">10</property>
+            <property name="label" translatable="yes">Password:</property>
+          </object>
+          <packing>
+            <property name="y">260</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="password">
+            <property name="width_request">300</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="tooltip_text" translatable="yes">Your remote password.</property>
+            <property name="margin_left">7</property>
+            <property name="visibility">False</property>
+            <property name="invisible_char">●</property>
+          </object>
+          <packing>
+            <property name="y">290</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="connect">
+            <property name="label" translatable="yes">Connect</property>
+            <property name="width_request">100</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="clicked" handler="connectRDP" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">107</property>
+            <property name="y">330</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="width">
+            <property name="width_request">-1</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="margin_left">7</property>
+            <property name="max_length">4</property>
+            <property name="width_chars">4</property>
+            <property name="text" translatable="yes">1280</property>
+            <property name="caps_lock_warning">False</property>
+            <property name="input_purpose">digits</property>
+          </object>
+          <packing>
+            <property name="x">48</property>
+            <property name="y">80</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="widthLabel">
+            <property name="width_request">-1</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_left">10</property>
+            <property name="label" translatable="yes">Width:</property>
+          </object>
+          <packing>
+            <property name="y">80</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="heightLabel">
+            <property name="width_request">-1</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Height:</property>
+          </object>
+          <packing>
+            <property name="x">120</property>
+            <property name="y">80</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="height">
+            <property name="width_request">-1</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="max_length">4</property>
+            <property name="width_chars">4</property>
+            <property name="max_width_chars">4</property>
+            <property name="text" translatable="yes">768</property>
+            <property name="input_purpose">digits</property>
+          </object>
+          <packing>
+            <property name="x">170</property>
+            <property name="y">80</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton">
+            <property name="width_request">30</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="tooltip_text" translatable="yes">Add command line options/arguments.</property>
+            <property name="image">image1</property>
+            <signal name="clicked" handler="openDialog" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">270</property>
+            <property name="y">80</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
+  </object>
+</interface>

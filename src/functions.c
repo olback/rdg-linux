@@ -16,18 +16,15 @@ void trimSpaces(char* source) {
 
 void prepare() {
 
-    sprintf(ip, "%s", gtk_entry_get_text(GTK_ENTRY(ipEntry)));
+    sprintf(ip, "%s", gtk_entry_get_text(GTK_ENTRY(ipEntryA)));
     trimSpaces(ip);
     if(strcmp(ip, "") != 0) {
-        sprintf(ip, "%s", gtk_entry_get_text(GTK_ENTRY(ipEntry)));
         allowConnect = 1;
     }
 
     sprintf(port, "%s", gtk_entry_get_text(GTK_ENTRY(portEntry)));
     trimSpaces(port);
-    if(strcmp(port, "") != 0) {
-        sprintf(port, "%s", gtk_entry_get_text(GTK_ENTRY(portEntry)));
-    } else {
+    if(strcmp(port, "") == 0) {
         allowConnect = 0;
     }
 

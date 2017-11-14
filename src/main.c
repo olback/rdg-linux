@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     window = GTK_WIDGET(gtk_builder_get_object(builder, "main"));
     dialog = GTK_WIDGET(gtk_builder_get_object(builder, "dialog"));
 
-    ipEntry = GTK_ENTRY(gtk_builder_get_object(builder, "ip"));
+    ipEntryA = GTK_ENTRY(gtk_builder_get_object(builder, "ip"));
     portEntry = GTK_ENTRY(gtk_builder_get_object(builder, "port"));
     widthEntry = GTK_ENTRY(gtk_builder_get_object(builder, "width"));
     heightEntry = GTK_ENTRY(gtk_builder_get_object(builder, "height"));
