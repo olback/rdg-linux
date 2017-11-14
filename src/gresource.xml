@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-    <gresource prefix="/org/gnome/rdg">
-        <!--<file preprocess="to-pixdata">slider.png</file>-->
+    <gresource prefix="/net/olback/rdg">
         <file preprocess="xml-stripblanks">src/rdg.glade</file>
+        <file>src/icon.png</file>
     </gresource>
 </gresources>

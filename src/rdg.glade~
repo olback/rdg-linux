@@ -345,7 +345,7 @@ github.com/olback/rdg-linux
           </packing>
         </child>
         <child>
-          <object class="GtkEntry" id="height">
+          <object class="GtkEntry" id="heigt">
             <property name="width_request">-1</property>
             <property name="height_request">30</property>
             <property name="visible">True</property>

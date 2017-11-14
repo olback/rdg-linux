@@ -13,11 +13,21 @@ int main(int argc, char *argv[])
     gtk_init(&argc, &argv);
 
     builder = gtk_builder_new();
-    gtk_builder_add_from_resource(builder, "/org/gnome/rdg/src/rdg.glade", NULL);
+    gtk_builder_add_from_resource(builder, "/net/olback/rdg/src/rdg.glade", NULL);
 
     window = GTK_WIDGET(gtk_builder_get_object(builder, "main"));
+    dialog = GTK_WIDGET(gtk_builder_get_object(builder, "dialog"));
+
+    ipEntry = GTK_ENTRY(gtk_builder_get_object(builder, "ip"));
+    portEntry = GTK_ENTRY(gtk_builder_get_object(builder, "port"));
+    widthEntry = GTK_ENTRY(gtk_builder_get_object(builder, "width"));
+    heightEntry = GTK_ENTRY(gtk_builder_get_object(builder, "height"));
+    usernameEntry = GTK_ENTRY(gtk_builder_get_object(builder, "username"));
+    domainEntry = GTK_ENTRY(gtk_builder_get_object(builder, "domain"));
+    passwordEntry = GTK_ENTRY(gtk_builder_get_object(builder, "password"));
+    extraArgsEntry = GTK_ENTRY(gtk_builder_get_object(builder, "extraArgs"));
+
     keymapInput = GTK_COMBO_BOX_TEXT(gtk_builder_get_object(builder, "keymap"));
-    printf("Keymap set to %s\n", gtk_combo_box_text_get_active_text (keymapInput));
 
     gtk_window_set_title(GTK_WINDOW(window), "rdg");
 
