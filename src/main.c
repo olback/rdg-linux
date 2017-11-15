@@ -26,7 +26,6 @@ int main(int argc, char *argv[])
     domainEntry = GTK_ENTRY(gtk_builder_get_object(builder, "domain"));
     passwordEntry = GTK_ENTRY(gtk_builder_get_object(builder, "password"));
     extraArgsEntry = GTK_ENTRY(gtk_builder_get_object(builder, "extraArgs"));
-
     keymapInput = GTK_COMBO_BOX_TEXT(gtk_builder_get_object(builder, "keymap"));
 
     gtk_window_set_title(GTK_WINDOW(window), "rdg");

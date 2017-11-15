@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.20.1 
+<!-- Generated with glade 3.20.0 
 
 Copyright (C) 
 
@@ -18,8 +18,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with rdg.  If not, see <http://www.gnu.org/licenses/>.
 
-Authors:
-olback
+Author:
 github.com/olback/rdg-linux
 
 -->
@@ -87,9 +86,6 @@ github.com/olback/rdg-linux
         </child>
       </object>
     </child>
-    <child>
-      <placeholder/>
-    </child>
   </object>
   <object class="GtkImage" id="image1">
     <property name="visible">True</property>
@@ -119,8 +115,7 @@ github.com/olback/rdg-linux
             <property name="active_id">0</property>
             <items>
               <item id="0" translatable="yes">en-us</item>
-              <item translatable="yes">sv-se</item>
-              <item translatable="yes">en-gb</item>
+              <item translatable="yes">sv</item>
             </items>
             <signal name="changed" handler="setKeymap" swapped="no"/>
           </object>
@@ -382,19 +377,5 @@ github.com/olback/rdg-linux
     <child type="titlebar">
       <placeholder/>
     </child>
-  </object>
-  <object class="GtkListStore" id="liststore1">
-    <columns>
-      <!-- column-name gchararray1 -->
-      <column type="gchararray"/>
-    </columns>
-    <data>
-      <row>
-        <col id="0" translatable="yes">en-us</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes">sv-se</col>
-      </row>
-    </data>
   </object>
 </interface>

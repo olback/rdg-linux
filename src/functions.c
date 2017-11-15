@@ -14,6 +14,10 @@ void trimSpaces(char* source) {
     *i = 0;
 }
 
+void setKeymap() {
+    sprintf(keymap, "-k %s ", gtk_combo_box_text_get_active_text(keymapInput));
+}
+
 void prepare() {
 
     sprintf(ip, "%s", gtk_entry_get_text(GTK_ENTRY(ipEntryA)));
@@ -66,16 +70,13 @@ void prepare() {
 
     sprintf(extraArgs, "%s", gtk_entry_get_text(GTK_ENTRY(extraArgsEntry)));
 
-    sprintf(connectString, "rdesktop %s%s%s%s%s%s %s:%s", user, dom, pass, windowGeo, keymap, extraArgs, ip, port);
+    setKeymap();
 
-}
+    sprintf(connectString, "rdesktop %s%s%s%s%s%s %s:%s &", user, dom, pass, windowGeo, keymap, extraArgs, ip, port);
 
-void setKeymap() {
-    sprintf(keymap, "-k %s ", gtk_combo_box_text_get_active_text(keymapInput));
 }
 
 void connectRDP() {
-    setKeymap();
     prepare();
     if(allowConnect) {
         printf("%s\n", connectString);
