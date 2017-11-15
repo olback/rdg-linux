@@ -115,7 +115,45 @@ github.com/olback/rdg-linux
             <property name="active_id">0</property>
             <items>
               <item id="0" translatable="yes">en-us</item>
+              <item translatable="yes">ar</item>
+              <item translatable="yes">cs</item>
+              <item translatable="yes">da</item>
+              <item translatable="yes">de</item>
+              <item translatable="yes">de-ch</item>
+              <item translatable="yes">en-dv</item>
+              <item translatable="yes">en-gb</item>
+              <item translatable="yes">en-us-intl</item>
+              <item translatable="yes">es</item>
+              <item translatable="yes">et</item>
+              <item translatable="yes">fi</item>
+              <item translatable="yes">fo</item>
+              <item translatable="yes">fr</item>
+              <item translatable="yes">fr-be</item>
+              <item translatable="yes">fr-bepo</item>
+              <item translatable="yes">fr-ca</item>
+              <item translatable="yes">fr-ch</item>
+              <item translatable="yes">he</item>
+              <item translatable="yes">hr</item>
+              <item translatable="yes">hu</item>
+              <item translatable="yes">is</item>
+              <item translatable="yes">it</item>
+              <item translatable="yes">ja</item>
+              <item translatable="yes">ko</item>
+              <item translatable="yes">lt</item>
+              <item translatable="yes">lv</item>
+              <item translatable="yes">mk</item>
+              <item translatable="yes">nl</item>
+              <item translatable="yes">nl-be</item>
+              <item translatable="yes">no</item>
+              <item translatable="yes">pl</item>
+              <item translatable="yes">pt</item>
+              <item translatable="yes">pt-br</item>
+              <item translatable="yes">ru</item>
+              <item translatable="yes">sk</item>
+              <item translatable="yes">sl</item>
               <item translatable="yes">sv</item>
+              <item translatable="yes">th</item>
+              <item translatable="yes">tr</item>
             </items>
             <signal name="changed" handler="setKeymap" swapped="no"/>
           </object>
