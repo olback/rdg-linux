@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
     extraArgsEntry = GTK_ENTRY(gtk_builder_get_object(builder, "extraArgs"));
     keymapInput = GTK_COMBO_BOX_TEXT(gtk_builder_get_object(builder, "keymap"));
 
-    gtk_window_set_title(GTK_WINDOW(window), "rdg");
+    gtk_window_set_title(GTK_WINDOW(window), "rDesktop GUI");
 
     gtk_builder_connect_signals(builder, NULL);
     g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
