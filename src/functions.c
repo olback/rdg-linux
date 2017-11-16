@@ -80,7 +80,7 @@ void setKeymap() {
 
 void prepareConnectString() {
     sprintf(extraArgs, "%s", gtk_entry_get_text(GTK_ENTRY(extraArgsEntry)));
-    sprintf(connectString, "rdesktop %s%s%s%s%s%s %s:%s", user, dom, pass, windowGeo, keymap, extraArgs, ip, port);
+    sprintf(connectString, "rdesktop %s%s%s%s%s%s %s:%s &", user, dom, pass, windowGeo, keymap, extraArgs, ip, port);
 
 }
 

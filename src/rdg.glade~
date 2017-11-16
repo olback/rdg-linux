@@ -102,19 +102,6 @@ github.com/olback/rdg-linux
             <property name="y">40</property>
           </packing>
         </child>
-        <child>
-          <object class="GtkLabel">
-            <property name="width_request">-1</property>
-            <property name="height_request">30</property>
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="margin_left">10</property>
-            <property name="label" translatable="yes">Experience:</property>
-          </object>
-          <packing>
-            <property name="y">10</property>
-          </packing>
-        </child>
       </object>
     </child>
     <child type="titlebar">
