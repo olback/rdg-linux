@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.20.0 
+<!-- Generated with glade 3.20.1 
 
 Copyright (C) 
 
@@ -86,6 +86,9 @@ github.com/olback/rdg-linux
         </child>
       </object>
     </child>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
   </object>
   <object class="GtkImage" id="image1">
     <property name="visible">True</property>
@@ -171,11 +174,9 @@ github.com/olback/rdg-linux
             <property name="tooltip_text" translatable="yes">Remote RDP port. Default is 3389.</property>
             <property name="max_length">5</property>
             <property name="width_chars">5</property>
-            <property name="max_width_chars">5</property>
             <property name="text" translatable="yes">3389</property>
             <property name="caps_lock_warning">False</property>
             <property name="placeholder_text" translatable="yes">3389</property>
-            <property name="input_purpose">digits</property>
           </object>
           <packing>
             <property name="x">144</property>
@@ -385,7 +386,6 @@ github.com/olback/rdg-linux
             <property name="can_focus">True</property>
             <property name="max_length">4</property>
             <property name="width_chars">4</property>
-            <property name="max_width_chars">4</property>
             <property name="text" translatable="yes">768</property>
             <property name="input_purpose">digits</property>
           </object>

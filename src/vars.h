@@ -10,17 +10,17 @@
 
 // Global variables bla bla don't care.
 char ip[16];
-char port[5];
-char keymap[5];
-char width[4];
-char height[4];
+char port[6];
+char keymap[16];
+char width[5];
+char height[5];
 char username[255];
 char domain[255];
 char password[255];
 char extraArgs[255];
 
 int allowConnect = 0;
-char connectString[1024];
+char connectString[1536];
 
 GtkBuilder  *builder;
 
