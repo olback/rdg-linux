@@ -30,17 +30,6 @@ void preparePort() {
     }
 }
 
-char windowGeo[32];
-void prepareWindowGeo() {
-    sprintf(width, "%s", gtk_entry_get_text(GTK_ENTRY(widthEntry)));
-    sprintf(height, "%s", gtk_entry_get_text(GTK_ENTRY(heightEntry)));
-    trimSpaces(width);
-    trimSpaces(height);
-    if(strcmp(width, "") != 0 && strcmp(height, "") != 0) {
-        sprintf(windowGeo, "-g %sx%s ", width, height);
-    }
-}
-
 char user[255];
 void prepareUsername() {
     sprintf(username, "%s", gtk_entry_get_text(GTK_ENTRY(usernameEntry)));
@@ -63,39 +52,68 @@ void prepareDomain() {
     }
 }
 
-char pass[255];
-void preparePassword() {
-    sprintf(password, "%s", gtk_entry_get_text(GTK_ENTRY(passwordEntry)));
-    trimSpaces(password);
-    if(strcmp(password, "") != 0) {
-        sprintf(pass, "-p %s ", password);
-    } else {
-        sprintf(pass, "%s", "");
+char windowGeo[32];
+void prepareWindowGeo() {
+    sprintf(width, "%s", gtk_entry_get_text(GTK_ENTRY(widthEntry)));
+    sprintf(height, "%s", gtk_entry_get_text(GTK_ENTRY(heightEntry)));
+    trimSpaces(width);
+    trimSpaces(height);
+    if(strcmp(width, "") != 0 && strcmp(height, "") != 0) {
+        sprintf(windowGeo, "-g %sx%s ", width, height);
     }
 }
 
-void setKeymap() {
-    sprintf(keymap, "-k %s ", gtk_combo_box_text_get_active_text(keymapInput));
+void getExtraRDA() {
+
+    sprintf(extraRDA, "%s", ""); // Reset extraRDA.
+
+    sprintf(extraRDA, "%s-k %s ", extraRDA, gtk_combo_box_text_get_active_text(keymapInput));
+
+    sprintf(extraRDA, "%s-x %s ", extraRDA, gtk_combo_box_text_get_active_text(experienceInput));
+
+    sprintf(extraRDA, "%s-a %s ", extraRDA, gtk_combo_box_text_get_active_text(bppInput));
+
+    if(gtk_switch_get_state(GTK_SWITCH(fullscreenSwitch))) {
+        sprintf(extraRDA, "%s%s", extraRDA, "-f ");
+    }
+
+    if(gtk_switch_get_state(GTK_SWITCH(encryptionSwitch))) {
+        sprintf(extraRDA, "%s%s", extraRDA, "-E ");
+    }
+
+    if(gtk_switch_get_state(GTK_SWITCH(compressionSwitch))) {
+        sprintf(extraRDA, "%s%s", extraRDA, "-z ");
+    }
+
+    if(gtk_switch_get_state(GTK_SWITCH(bitmapSwitch))) {
+        sprintf(extraRDA, "%s%s", extraRDA, "-P ");
+    }
+
+    if(gtk_switch_get_state(GTK_SWITCH(numlockSync))) {
+        sprintf(extraRDA, "%s%s", extraRDA, "-N ");
+    }
+
+    sprintf(extraRDA, "%s%s", extraRDA, gtk_entry_get_text(GTK_ENTRY(extraArgsEntry)));
+
 }
 
 void prepareConnectString() {
-    sprintf(extraArgs, "%s", gtk_entry_get_text(GTK_ENTRY(extraArgsEntry)));
-    sprintf(connectString, "rdesktop %s%s%s%s%s%s %s:%s &", user, dom, pass, windowGeo, keymap, extraArgs, ip, port);
-
+    sprintf(connectString, "rdesktop %s%s%s%s %s:%s &", user, dom, windowGeo, extraRDA, ip, port);
 }
 
 void connectRDP() {
     prepareIP();
     preparePort();
     if(allowConnect) {
-        prepareWindowGeo();
         prepareUsername();
         prepareDomain();
-        preparePassword();
-        setKeymap();
+        prepareWindowGeo();
+        getExtraRDA();
         prepareConnectString();
         printf("%s\n", connectString);
-        system(connectString);
+        if(!DEV) {
+            system(connectString);
+        }
         allowConnect = 0;
     }
 }
