@@ -11,7 +11,7 @@
 #include <unistd.h>
 #include <gtk/gtk.h>
 
-char title[64] = "rDesktop GUI 1.0";
+char title[64] = "rDesktop GUI 1.1";
 const char rdPath[] = "/usr/bin/rdesktop";
 
 // Global variables bla bla don't care.
