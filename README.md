@@ -1,4 +1,5 @@
 # rdg-linux
 rdesktop gui
 
-`./tools/build.py`
+Run `make` to build the binary.  
+Run `make run` to build and run the binary.
