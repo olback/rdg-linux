@@ -55,5 +55,6 @@ dkms.conf
 .vscode/
 .vscode/*
 
-# Compiled resources
+# Compiled binary resources 
 src/resources.c
+rdg

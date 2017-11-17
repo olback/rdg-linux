@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -rdynamic `pkg-config --cflags --libs gtk+-3.0`
-OUT_FILE = rdg.app
+OUT_FILE = rdg
 SOURCE = src/main.c
 RESOURCE_TARGET = src/resources.c
 RESOURCE_SOURCE = src/gresource.xml
