@@ -35,6 +35,8 @@ int main(int argc, char *argv[])
     numlockSync = GTK_SWITCH(gtk_builder_get_object(builder, "numlockSync"));
     extraArgsEntry = GTK_ENTRY(gtk_builder_get_object(builder, "extraArgs"));
 
+    rdesktopError = GTK_WIDGET(gtk_builder_get_object(builder, "rdesktopError"));
+
     gtk_builder_connect_signals(builder, NULL);
     g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
 
@@ -51,6 +53,8 @@ int main(int argc, char *argv[])
     }
 
     gtk_widget_show(window);
+
+    rdExists();
 
     gtk_main();
 

@@ -624,4 +624,72 @@ The special value `none' can be used instead of a keyboard map. In this case, rd
       <placeholder/>
     </child>
   </object>
+  <object class="GtkWindow" id="rdesktopError">
+    <property name="width_request">330</property>
+    <property name="height_request">150</property>
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">rdesktop not found</property>
+    <property name="modal">True</property>
+    <property name="window_position">center</property>
+    <property name="default_width">330</property>
+    <property name="default_height">150</property>
+    <property name="icon_name">dialog-error</property>
+    <property name="type_hint">dialog</property>
+    <property name="skip_pager_hint">True</property>
+    <property name="gravity">center</property>
+    <child>
+      <object class="GtkFixed">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GtkButton">
+            <property name="label" translatable="yes">OK</property>
+            <property name="width_request">100</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="clicked" handler="closeRdesktopError" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">115</property>
+            <property name="y">110</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkImage">
+            <property name="width_request">80</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="pixel_size">60</property>
+            <property name="icon_name">dialog-error</property>
+            <property name="icon_size">6</property>
+          </object>
+          <packing>
+            <property name="x">7</property>
+            <property name="y">15</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Could not find the rdesktop binary.
+Please make sure you have it
+installed and permission to run it.</property>
+          </object>
+          <packing>
+            <property name="x">87</property>
+            <property name="y">15</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+    <child>
+      <placeholder/>
+    </child>
+  </object>
 </interface>

@@ -8,9 +8,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 #include <gtk/gtk.h>
 
 char title[64] = "rDesktop GUI 1.0";
+const char rdPath[] = "/usr/bin/rdesktopd";
 
 // Global variables bla bla don't care.
 char ip[16];
@@ -31,6 +33,7 @@ GtkBuilder  *builder;
 
 GtkWidget   *window;
 GtkWidget   *dialog;
+GtkWidget   *rdesktopError;
 
 GtkEntry    *ipEntryA; // "ipEntry" is pre-defined on some systems. Thanks dad :)
 GtkEntry    *portEntry;
