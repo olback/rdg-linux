@@ -1,0 +1,59 @@
+/**
+ *  rdg © 2017
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #eee;
+}
+
+nav {
+    max-width: 1200px;
+    height: 59px;
+    position: relative;
+    top: 0;
+    line-height: 27px;
+    margin: auto;
+    border-bottom: 1px solid #333;
+}
+
+nav > a {
+    padding: 0 20px;
+    color: #333;
+    text-decoration: none;
+    padding: 16px;
+    float: right;
+}
+
+nav > a.title {
+    padding: 16px;
+    font-size: 30px;
+    float: left;
+}
+
+a:hover {
+    background-color: rgba(0,0,0, 0.3);
+}
+
+main {
+    margin: auto;
+    text-align: center;
+    max-width: 1000px;
+}
+
+h1 {
+    font-weight: lighter;
+}
+
+@media only screen and (max-width: 1280px) {
+    .github-corner {
+        display: none;
+    }
+}
