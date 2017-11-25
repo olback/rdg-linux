@@ -51,10 +51,6 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-# VS Code
-.vscode/
-.vscode/*
-
 # Compiled binary resources 
 src/resources.c
 rdg

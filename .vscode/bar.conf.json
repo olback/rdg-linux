@@ -1,0 +1,6 @@
+{
+    "commands": {
+        "build": "make",
+        "run": "./rdg"
+    }
+}
