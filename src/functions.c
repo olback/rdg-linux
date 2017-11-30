@@ -1,5 +1,5 @@
 /**
- *  olback.net
+ *  olback.net © 2017
  *  github.com/olback/rdg-linux
  */
 

@@ -1,5 +1,5 @@
 /**
- *  olback.net
+ *  olback.net © 2017
  *  github.com/olback/rdg-linux
  */
 
@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     gtk_init(&argc, &argv);
 
     builder = gtk_builder_new();
-    gtk_builder_add_from_resource(builder, "/net/olback/rdg/src/rdg.glade", NULL);
+    gtk_builder_add_from_resource(builder, "/net/olback/rdg/glade_file", NULL);
 
     window = GTK_WIDGET(gtk_builder_get_object(builder, "main"));
     ipEntryA = GTK_ENTRY(gtk_builder_get_object(builder, "ip"));
