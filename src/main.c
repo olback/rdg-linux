@@ -9,7 +9,11 @@
 
 int main(int argc, char *argv[])
 {  
-
+    if(!DEV && argc == 1) {
+        system("./rdg -start & disown");
+        exit(1);
+    }
+    
     gtk_init(&argc, &argv);
 
     builder = gtk_builder_new();
