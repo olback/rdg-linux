@@ -12,7 +12,7 @@ build:
 
 run:
 	make build
-	./$(OUT_FILE)
+	./$(OUT_FILE) -t
 
 clean:
 	rm src/resources.c
