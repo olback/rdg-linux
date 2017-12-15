@@ -4,13 +4,17 @@
  */
 
 #include "vars.h"
-#include "functions.c"
+#include "connect.c"
+#include "window.c"
 #include "resources.c"
 
 int main(int argc, char *argv[])
-{  
+{
     if(!DEV && argc == 1) {
-        system("./rdg -start & disown");
+        startRDG();
+        char startString[PATH_MAX];
+        sprintf(startString, "%s -start & disown", rdgPath);
+        system(startString);
         exit(1);
     }
     

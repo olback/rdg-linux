@@ -3,7 +3,7 @@
  *  github.com/olback/rdg-linux
  */
 
-#define DEV FALSE
+#define DEV FALSE    // TRUE/FALSE
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,7 +11,7 @@
 #include <unistd.h>
 #include <gtk/gtk.h>
 
-char title[64] = "rDesktop GUI 1.2";
+char title[64] = "rDesktop GUI 1.3";
 const char rdPath[] = "/usr/bin/rdesktop";
 
 // Global variables bla bla don't care.
@@ -28,6 +28,7 @@ char extraRDA[512];
 
 int allowConnect = 0;
 char connectString[2048];
+char rdgPath[PATH_MAX];
 
 GtkBuilder  *builder;
 

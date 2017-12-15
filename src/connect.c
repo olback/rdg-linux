@@ -115,24 +115,7 @@ void connectRDP() {
             system(connectString);
         }
         allowConnect = 0;
+    } else {
+        printf("Please enter a vailid IP and port.\n");
     }
-}
-
-void openDialog() {
-    gtk_widget_show(dialog);
-}
-
-void closeDialog() {
-    gtk_widget_hide(dialog);
-}
-
-void rdExists() {
-    if(access(rdPath, R_OK) == -1) {
-        printf("Could not find rdesktop, make sure you have it installed and have permission to run it.\n");
-        gtk_widget_show(rdesktopError);    
-    }
-}
-
-void closeRdesktopError() {
-    gtk_widget_hide(rdesktopError);
 }
