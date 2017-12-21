@@ -3,7 +3,7 @@
  *  github.com/olback/rdg-linux
  */
 
-#define DEV FALSE    // TRUE/FALSE
+#define DEV TRUE    // TRUE/FALSE
 
 #include <stdio.h>
 #include <stdlib.h>

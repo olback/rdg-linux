@@ -711,7 +711,6 @@ The special value `none' can be used instead of a keyboard map. In this case, rd
             <property name="visible">True</property>
             <property name="app_paintable">True</property>
             <property name="can_focus">False</property>
-            <property name="margin_right">18</property>
             <property name="label" translatable="yes">Could not find the rdesktop binary.
 Please make sure you have it
 installed and permission to run it.</property>
