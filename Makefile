@@ -8,6 +8,7 @@ RESOURCE_SOURCE = src/gresource.xml
 build:
 	glib-compile-resources --target=$(RESOURCE_TARGET) --generate-source $(RESOURCE_SOURCE)
 	$(CC) -o $(OUT_FILE) $(SOURCE) $(CFLAGS)
+	sha512sum rdg > sha512.sum
 	make clean
 
 run:
