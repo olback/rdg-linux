@@ -4,7 +4,7 @@
         <title>rDesktop GUI</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="rdg.css" rel="stylesheet">
+        <link rel="stylesheet" href="rdg.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha256-NuCn4IvuZXdBaFKJOAcsU2Q3ZpwbdFisd5dux4jkQ5w=" crossorigin="anonymous">
     </head>
     <body>
@@ -14,14 +14,34 @@
         </nav>
         <main>
             <section>
-                <h1>What is rdg-linux?</h1>
-                <p>rdg-linux is a gui appliocation made to make it easier to connect from linux to windows using <a href="http://www.rdesktop.org/" target="_blank">rDesktop</a> <a href="https://github.com/rdesktop/rdesktop" target="_blank" class="fa fa-github"></a>.</p>
+                <h1>What is <em>rdg-linux?</em></h1>
+                <p>
+                    rdg-linux is a gui appliocation made to make it easier to connect from a linux desktop to a windows desktop/server using <a href="http://www.rdesktop.org/" target="_blank">rDesktop</a> <a href="https://github.com/rdesktop/rdesktop" target="_blank" class="fa fa-github"></a>.
+                    This is a open-source project maintained by <a href="https://github.com/olback" target="_blank">olback</a> and is not affiliated with rDesktop in any way.
+                </p>
             </section>
             <section>
                 <h1>Design</h1>
                 <p>
-                    This application was designed with simplicity in mind. Enter your target IP and click connect.
+                    This application was designed with simplicity in mind. Enter your target IP and click connect. And thats it!
                     <img style="margin-top: 10px;" src="rdg-ui.png" alt="ui"/>
+                </p>
+            </section>
+            <section>
+                <h1>Dev</h1>
+                <p>
+                    To build this application you will need a few packages:
+                </p>
+                <ul style="text-align: left; padding-left: 48%;">
+                    <li>git</li>
+                    <li>make</li>
+                    <li>gcc</li>
+                    <li>libgtk-3-dev</li>
+                    <li>glade (optional)</li>
+                </ul>
+                <p>
+                    When you've got those packages installed, cd to the project and run <code>make</code>.<br>
+                    Run the binary with <code>./rdg</code> or build and run the binary at the same time with <code>make run</code>.
                 </p>
             </section>
         </main>
