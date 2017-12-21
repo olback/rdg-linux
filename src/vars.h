@@ -3,7 +3,7 @@
  *  github.com/olback/rdg-linux
  */
 
-#define DEV TRUE    // TRUE/FALSE
+#define DEV FALSE    // TRUE/FALSE
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,7 +11,7 @@
 #include <unistd.h>
 #include <gtk/gtk.h>
 
-char title[64] = "rDesktop GUI 1.4";
+char title[64] = "rDesktop GUI 1.5";
 const char rdPath[] = "/usr/bin/rdesktop";
 
 // Global variables bla bla don't care.
