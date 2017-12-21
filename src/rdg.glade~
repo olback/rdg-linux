@@ -639,7 +639,7 @@ The special value `none' can be used instead of a keyboard map. In this case, rd
             <property name="resource">/net/olback/rdg/src/icon_66.png</property>
           </object>
           <packing>
-            <property name="x">318</property>
+            <property name="x">323</property>
             <property name="y">150</property>
           </packing>
         </child>
