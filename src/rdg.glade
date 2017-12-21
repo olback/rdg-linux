@@ -31,14 +31,14 @@ Author: olback
   <!-- interface-authors olback -->
   <object class="GtkWindow" id="dialog">
     <property name="width_request">440</property>
-    <property name="height_request">410</property>
+    <property name="height_request">400</property>
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">Extra rdesktop agruments</property>
     <property name="resizable">False</property>
     <property name="modal">True</property>
     <property name="window_position">center</property>
     <property name="default_width">440</property>
-    <property name="default_height">410</property>
+    <property name="default_height">400</property>
     <property name="destroy_with_parent">True</property>
     <property name="skip_taskbar_hint">True</property>
     <property name="gravity">center</property>
@@ -53,23 +53,23 @@ Author: olback
             <property name="height_request">30</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="margin_left">10</property>
             <property name="label" translatable="yes">Extra rdesktop command line arguments:</property>
           </object>
           <packing>
-            <property name="y">300</property>
+            <property name="x">18</property>
+            <property name="y">282</property>
           </packing>
         </child>
         <child>
           <object class="GtkEntry" id="extraArgs">
-            <property name="width_request">426</property>
+            <property name="width_request">404</property>
             <property name="height_request">30</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="margin_left">7</property>
           </object>
           <packing>
-            <property name="y">330</property>
+            <property name="x">18</property>
+            <property name="y">312</property>
           </packing>
         </child>
         <child>
@@ -83,13 +83,13 @@ Author: olback
             <signal name="clicked" handler="closeDialog" swapped="no"/>
           </object>
           <packing>
-            <property name="x">333</property>
-            <property name="y">370</property>
+            <property name="x">322</property>
+            <property name="y">352</property>
           </packing>
         </child>
         <child>
           <object class="GtkComboBoxText" id="experience">
-            <property name="width_request">105</property>
+            <property name="width_request">110</property>
             <property name="height_request">30</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -101,8 +101,8 @@ Author: olback
             </items>
           </object>
           <packing>
-            <property name="x">325</property>
-            <property name="y">10</property>
+            <property name="x">312</property>
+            <property name="y">18</property>
           </packing>
         </child>
         <child>
@@ -112,11 +112,11 @@ Author: olback
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="tooltip_text" translatable="yes">Setting experience to broadband enables menu animations and full window dragging. Setting experience to lan will also enable the desktop wallpaper. Setting experience to modem disables all (including themes).</property>
-            <property name="margin_left">10</property>
             <property name="label" translatable="yes">Experience</property>
           </object>
           <packing>
-            <property name="y">10</property>
+            <property name="x">18</property>
+            <property name="y">18</property>
           </packing>
         </child>
         <child>
@@ -126,22 +126,22 @@ Author: olback
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="tooltip_text" translatable="yes">Enable fullscreen mode. This overrides the window manager and causes the rdesktop window to fully cover the current screen. Fullscreen mode can be toggled at any time using Ctrl-Alt-Enter.</property>
-            <property name="margin_left">10</property>
             <property name="label" translatable="yes">Fullscreen</property>
           </object>
           <packing>
+            <property name="x">18</property>
             <property name="y">90</property>
           </packing>
         </child>
         <child>
           <object class="GtkSwitch" id="fullscreen">
-            <property name="width_request">52</property>
+            <property name="width_request">110</property>
             <property name="height_request">30</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
           </object>
           <packing>
-            <property name="x">375</property>
+            <property name="x">312</property>
             <property name="y">90</property>
           </packing>
         </child>
@@ -152,16 +152,16 @@ Author: olback
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="tooltip_text" translatable="yes">Sets the colour depth for the connection (8, 15, 16, 24 or 32). More than 8 bpp are only supported when connecting to Windows XP (up to 16 bpp) or newer. Note that the colour depth may also be limited by the server configuration. The default value is the depth of the root window.</property>
-            <property name="margin_left">10</property>
             <property name="label" translatable="yes">Colour depth</property>
           </object>
           <packing>
-            <property name="y">50</property>
+            <property name="x">18</property>
+            <property name="y">54</property>
           </packing>
         </child>
         <child>
           <object class="GtkComboBoxText" id="bpp">
-            <property name="width_request">105</property>
+            <property name="width_request">110</property>
             <property name="height_request">30</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -175,8 +175,8 @@ Author: olback
             </items>
           </object>
           <packing>
-            <property name="x">325</property>
-            <property name="y">50</property>
+            <property name="x">312</property>
+            <property name="y">54</property>
           </packing>
         </child>
         <child>
@@ -186,23 +186,23 @@ Author: olback
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="tooltip_text" translatable="yes">Disable encryption from client to server. This sends an encrypted login packet, but everything after this is unencrypted (including interactive logins).</property>
-            <property name="margin_left">10</property>
             <property name="label" translatable="yes">Disable encryption</property>
           </object>
           <packing>
-            <property name="y">130</property>
+            <property name="x">18</property>
+            <property name="y">126</property>
           </packing>
         </child>
         <child>
           <object class="GtkSwitch" id="encryption">
-            <property name="width_request">52</property>
+            <property name="width_request">110</property>
             <property name="height_request">30</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
           </object>
           <packing>
-            <property name="x">375</property>
-            <property name="y">130</property>
+            <property name="x">312</property>
+            <property name="y">126</property>
           </packing>
         </child>
         <child>
@@ -212,23 +212,24 @@ Author: olback
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="tooltip_text" translatable="yes">Enable compression of the RDP datastream.</property>
-            <property name="margin_left">10</property>
             <property name="label" translatable="yes">Compression</property>
           </object>
           <packing>
-            <property name="y">170</property>
+            <property name="x">18</property>
+            <property name="y">162</property>
           </packing>
         </child>
         <child>
           <object class="GtkSwitch" id="compression">
-            <property name="width_request">52</property>
+            <property name="width_request">110</property>
             <property name="height_request">30</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
+            <property name="halign">end</property>
           </object>
           <packing>
-            <property name="x">375</property>
-            <property name="y">170</property>
+            <property name="x">312</property>
+            <property name="y">162</property>
           </packing>
         </child>
         <child>
@@ -238,23 +239,23 @@ Author: olback
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="tooltip_text" translatable="yes">Enable caching of bitmaps to disk (persistent bitmap caching). This generally improves performance (especially on low bandwidth connections) and reduces network traffic at the cost of slightly longer startup and some disk space. (10MB for 8-bit colour, 20MB for 15/16-bit colour, 30MB for 24-bit colour and 40MB for 32-bit colour sessions)</property>
-            <property name="margin_left">10</property>
             <property name="label" translatable="yes">Cache bitmaps</property>
           </object>
           <packing>
-            <property name="y">210</property>
+            <property name="x">18</property>
+            <property name="y">198</property>
           </packing>
         </child>
         <child>
           <object class="GtkSwitch" id="cacheBitmaps">
-            <property name="width_request">52</property>
+            <property name="width_request">110</property>
             <property name="height_request">30</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
           </object>
           <packing>
-            <property name="x">375</property>
-            <property name="y">210</property>
+            <property name="x">312</property>
+            <property name="y">198</property>
           </packing>
         </child>
         <child>
@@ -264,36 +265,36 @@ Author: olback
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="tooltip_text" translatable="yes">Enable numlock syncronization between the Xserver and the remote RDP session. This is useful with applications that looks at the numlock state, but might cause problems with some Xservers like Xvnc.</property>
-            <property name="margin_left">10</property>
             <property name="label" translatable="yes">Numlock syncronization</property>
           </object>
           <packing>
-            <property name="y">250</property>
+            <property name="x">18</property>
+            <property name="y">234</property>
           </packing>
         </child>
         <child>
           <object class="GtkSwitch" id="numlockSync">
-            <property name="width_request">52</property>
+            <property name="width_request">110</property>
             <property name="height_request">30</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
           </object>
           <packing>
-            <property name="x">375</property>
-            <property name="y">250</property>
+            <property name="x">312</property>
+            <property name="y">234</property>
           </packing>
         </child>
         <child>
           <object class="GtkSeparator">
-            <property name="width_request">420</property>
+            <property name="width_request">404</property>
             <property name="height_request">1</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="orientation">vertical</property>
           </object>
           <packing>
-            <property name="x">10</property>
-            <property name="y">290</property>
+            <property name="x">18</property>
+            <property name="y">273</property>
           </packing>
         </child>
       </object>
@@ -316,6 +317,8 @@ Author: olback
     <property name="title" translatable="yes">rdg</property>
     <property name="resizable">False</property>
     <property name="window_position">center</property>
+    <property name="default_width">440</property>
+    <property name="default_height">282</property>
     <property name="icon">resource:///net/olback/rdg/src/icon.png</property>
     <property name="gravity">center</property>
     <signal name="delete-event" handler="gtk_main_quit" swapped="no"/>
@@ -513,6 +516,7 @@ The special value `none' can be used instead of a keyboard map. In this case, rd
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
+            <property name="tooltip_text" translatable="yes">Click to connect.</property>
             <signal name="clicked" handler="connectRDP" swapped="no"/>
           </object>
           <packing>
@@ -633,7 +637,7 @@ The special value `none' can be used instead of a keyboard map. In this case, rd
   </object>
   <object class="GtkWindow" id="rdesktopError">
     <property name="width_request">330</property>
-    <property name="height_request">210</property>
+    <property name="height_request">218</property>
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">rdesktop not found</property>
     <property name="resizable">False</property>
@@ -663,13 +667,13 @@ The special value `none' can be used instead of a keyboard map. In this case, rd
           </object>
           <packing>
             <property name="x">115</property>
-            <property name="y">165</property>
+            <property name="y">170</property>
           </packing>
         </child>
         <child>
           <object class="GtkImage">
-            <property name="width_request">80</property>
-            <property name="height_request">80</property>
+            <property name="width_request">60</property>
+            <property name="height_request">60</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="pixel_size">60</property>
@@ -677,8 +681,8 @@ The special value `none' can be used instead of a keyboard map. In this case, rd
             <property name="icon_size">6</property>
           </object>
           <packing>
-            <property name="x">7</property>
-            <property name="y">15</property>
+            <property name="x">18</property>
+            <property name="y">18</property>
           </packing>
         </child>
         <child>
@@ -686,14 +690,17 @@ The special value `none' can be used instead of a keyboard map. In this case, rd
             <property name="width_request">221</property>
             <property name="height_request">80</property>
             <property name="visible">True</property>
+            <property name="app_paintable">True</property>
             <property name="can_focus">False</property>
             <property name="label" translatable="yes">Could not find the rdesktop binary.
 Please make sure you have it
 installed and permission to run it.</property>
+            <property name="xalign">0.5</property>
+            <property name="yalign">0.5</property>
           </object>
           <packing>
-            <property name="x">87</property>
-            <property name="y">15</property>
+            <property name="x">90</property>
+            <property name="y">9</property>
           </packing>
         </child>
         <child>
@@ -704,18 +711,18 @@ installed and permission to run it.</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
-            <property name="tooltip_text" translatable="yes">hello?</property>
+            <property name="tooltip_text" translatable="yes">https://github.com/olback/rdg-linux/issues</property>
             <property name="relief">none</property>
             <property name="uri">https://github.com/olback/rdg-linux/issues</property>
           </object>
           <packing>
-            <property name="x">160</property>
-            <property name="y">127</property>
+            <property name="x">163</property>
+            <property name="y">126</property>
           </packing>
         </child>
         <child>
           <object class="GtkLabel">
-            <property name="width_request">197</property>
+            <property name="width_request">200</property>
             <property name="height_request">60</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -724,7 +731,7 @@ but still get this error? Please
 open a ticket</property>
           </object>
           <packing>
-            <property name="x">87</property>
+            <property name="x">90</property>
             <property name="y">92</property>
           </packing>
         </child>

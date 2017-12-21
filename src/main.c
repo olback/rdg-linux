@@ -56,6 +56,7 @@ int main(int argc, char *argv[])
         gtk_label_set_text(GTK_LABEL(devMode), devModeText);
         gtk_window_set_title(GTK_WINDOW(window), title);
         printf("%s\n", devModeText);
+        gtk_widget_show(rdesktopError);
     } else {
         gtk_window_set_title(GTK_WINDOW(window), title);
     }
