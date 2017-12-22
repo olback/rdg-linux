@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
         char startString[PATH_MAX];
         sprintf(startString, "%s -start & disown", rdgPath);
         system(startString);
-        exit(1);
+        exit(0);
     }
     
     gtk_init(&argc, &argv);
