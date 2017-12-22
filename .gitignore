@@ -54,3 +54,4 @@ dkms.conf
 # Compiled binary resources 
 src/resources.c
 rdg
+sha512.sum
