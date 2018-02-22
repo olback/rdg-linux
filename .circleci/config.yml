@@ -1,4 +1,4 @@
-version: 1
+version: 2
 jobs:
   build:
     docker:
@@ -11,3 +11,12 @@ jobs:
       - run:
           name: Build binary
           command: make
+      - run:
+          name: Checksum
+          command: sha512sum -c sha512.sum
+      - store_artifacts:
+          path: rdg
+          prefix: rdg-binary
+      - store_artifacts:
+          path: sha512.sum
+          prefix: rdg-checksum
