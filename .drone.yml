@@ -1,11 +1,13 @@
 pipeline:
-  image: debian:stretch
   dependencies:
+  	image: debian:stretch
     - apt update; apt install gcc git make libglib2.0-bin libgtk-3-dev libxml2-utils -y
       
   build:
+  	image: debian:stretch
     - make
         
   checksum:
+  	image: debian:stretch
     - sha512sum -c sha512.sum
 
