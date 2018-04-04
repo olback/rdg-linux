@@ -10,3 +10,4 @@ pipeline:
         
       checksum:
         - sha512sum -c sha512.sum
+
