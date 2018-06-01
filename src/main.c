@@ -3,25 +3,39 @@
  *  github.com/olback/rdg-linux
  */
 
-#include "vars.h"
-#include "connect.c"
-#include "window.c"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <gtk/gtk.h>
+#include "lib/cJSON.c"
+#include "include/vars.h"
+#include "include/connect.c"
+#include "include/window.c"
 #include "resources.c"
 
 int main(int argc, char *argv[])
 {
-    if(!DEV && argc == 1) {
-        startRDG();
-        char startString[PATH_MAX];
-        sprintf(startString, "%s -start & disown", rdgPath);
-        system(startString);
-        exit(0);
+    struct Version v = projectJSON();
+    char title[64];
+
+    if(strcmp(v.type, "dev") == 0) {
+        sprintf(title, "%s %1.1f DEV", v.name, v.version);
+        DEV = TRUE;
+    } else {
+        sprintf(title, "%s %1.1f", v.name, v.version);
+        if(argc == 1) {
+            char startString[PATH_MAX];
+            sprintf(startString, "%s -start & disown", argv[0]);
+            system(startString);
+            exit(0);
+        }
     }
     
     gtk_init(&argc, &argv);
 
     builder = gtk_builder_new();
-    gtk_builder_add_from_resource(builder, "/net/olback/rdg/glade_file", NULL);
+    gtk_builder_add_from_resource(builder, "/net/olback/rdg/src/layout/rdg.glade", NULL);
 
     window = GTK_WIDGET(gtk_builder_get_object(builder, "main"));
     ipEntryA = GTK_ENTRY(gtk_builder_get_object(builder, "ip"));
@@ -50,15 +64,10 @@ int main(int argc, char *argv[])
 
     g_object_unref(builder);
 
+    gtk_window_set_title(GTK_WINDOW(window), title);
+
     if(DEV) {
-        char devModeText[] = "DEV MODE";
-        sprintf(title, "%s %s", title, devModeText);
-        gtk_label_set_text(GTK_LABEL(devMode), devModeText);
-        gtk_window_set_title(GTK_WINDOW(window), title);
-        printf("%s\n", devModeText);
-        gtk_widget_show(rdesktopError);
-    } else {
-        gtk_window_set_title(GTK_WINDOW(window), title);
+        gtk_label_set_text(GTK_LABEL(devMode), "DEV MODE");
     }
 
     gtk_widget_show(window);

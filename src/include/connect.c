@@ -111,7 +111,9 @@ void connectRDP() {
         getExtraRDA();
         prepareConnectString();
         printf("%s\n", connectString);
-        if(!DEV) {
+        if(DEV) {
+            printf("%s%sDev mode enabled, not connecting!%s\n", KYEL, KBLD, KNRM);
+        } else {
             system(connectString);
         }
         allowConnect = 0;
