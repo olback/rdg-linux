@@ -3,16 +3,29 @@
  *  github.com/olback/rdg-linux
  */
 
-#define DEV FALSE    // TRUE/FALSE
+#define bool int;
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <gtk/gtk.h>
+bool DEV = FALSE;
 
-char title[64] = "rDesktop GUI 1.5";
+// char title[64] = "rDesktop GUI 1.5";
 const char rdPath[] = "/usr/bin/rdesktop";
+
+struct Version {
+    char name[16];
+    double version;
+    char type[8];
+};
+
+// Define terminal colors
+#define KNRM  "\x1B[0m"
+#define KRED  "\x1B[31m"
+#define KGRN  "\x1B[32m"
+#define KYEL  "\x1B[33m"
+#define KBLU  "\x1B[34m"
+#define KMAG  "\x1B[35m"
+#define KCYN  "\x1B[36m"
+#define KWHT  "\x1B[37m"
+#define KBLD  "\x1B[1m"
 
 // Global variables bla bla don't care.
 char ip[16];
@@ -36,7 +49,7 @@ GtkWidget   *window;
 GtkWidget   *dialog;
 GtkWidget   *rdesktopError;
 
-GtkEntry    *ipEntryA; // "ipEntry" is pre-defined on some systems. Thanks dad :)
+GtkEntry    *ipEntryA; // "ipEntry" is pre-defined on some systems.
 GtkEntry    *portEntry;
 GtkEntry    *widthEntry;
 GtkEntry    *heightEntry;
