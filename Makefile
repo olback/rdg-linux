@@ -9,7 +9,7 @@ INSTALL_PATH = /usr/bin/rdg
 build:
 	make resource
 	$(CC) -o $(OUT_FILE) $(SOURCE) $(CFLAGS)
-	sha512sum rdg > sha512.sum
+	sha512sum $(OUT_FILE) > sha512.sum
 	make clean
 
 run:
