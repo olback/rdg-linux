@@ -342,6 +342,7 @@ Author: olback
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="image">header_icon</property>
+            <property name="relief">none</property>
             <property name="always_show_image">True</property>
           </object>
         </child>
@@ -692,6 +693,7 @@ The special value `none' can be used instead of a keyboard map. In this case, rd
       </object>
       <packing>
         <property name="submenu">main</property>
+        <property name="position">1</property>
       </packing>
     </child>
   </object>
