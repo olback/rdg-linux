@@ -1,5 +1,5 @@
 /**
- *  olback.net © 2017
+ *  olback.net © 2018
  *  github.com/olback/rdg-linux
  */
 
@@ -12,7 +12,7 @@
 #include "include/vars.h"
 #include "include/connect.c"
 #include "include/window.c"
-#include "resources.c"
+#include "include/resources.c"
 
 int main(int argc, char *argv[])
 {
@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 
     if(strcmp(v.type, "dev") == 0) {
         sprintf(title, "%s %1.1f DEV", v.name, v.version);
-        DEV = TRUE;
+        dev = 1;
     } else {
         sprintf(title, "%s %1.1f", v.name, v.version);
         if(argc == 1) {
@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
 
     gtk_window_set_title(GTK_WINDOW(window), title);
 
-    if(DEV) {
+    if(dev) {
         gtk_label_set_text(GTK_LABEL(devMode), "DEV MODE");
     }
 

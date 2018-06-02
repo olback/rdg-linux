@@ -1,13 +1,12 @@
 /**
- *  olback.net © 2017
+ *  olback.net © 2018
  *  github.com/olback/rdg-linux
  */
 
-#define bool int;
+// Dev mode?
+int dev = false;
 
-bool DEV = FALSE;
-
-// char title[64] = "rDesktop GUI 1.5";
+// Path to rDesktop binary
 const char rdPath[] = "/usr/bin/rdesktop";
 
 struct Version {

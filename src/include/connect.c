@@ -1,5 +1,5 @@
 /**
- *  olback.net © 2017
+ *  olback.net © 2018
  *  github.com/olback/rdg-linux
  */
 
@@ -111,7 +111,7 @@ void connectRDP() {
         getExtraRDA();
         prepareConnectString();
         printf("%s\n", connectString);
-        if(DEV) {
+        if(dev) {
             printf("%s%sDev mode enabled, not connecting!%s\n", KYEL, KBLD, KNRM);
         } else {
             system(connectString);
