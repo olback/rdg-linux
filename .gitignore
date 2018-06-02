@@ -52,6 +52,6 @@ Mkfile.old
 dkms.conf
 
 # Compiled binary resources 
-src/resources.c
+src/include/resources.c
 rdg
 sha512.sum

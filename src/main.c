@@ -1,5 +1,5 @@
 /**
- *  olback.net © 2017
+ *  olback.net © 2018
  *  github.com/olback/rdg-linux
  */
 
@@ -12,7 +12,7 @@
 #include "include/vars.h"
 #include "include/connect.c"
 #include "include/window.c"
-#include "resources.c"
+#include "include/resources.c"
 
 int main(int argc, char *argv[])
 {
