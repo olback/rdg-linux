@@ -3,6 +3,12 @@
  *  github.com/olback/rdg-linux
  */
 
+#include <gtk/gtk.h>
+
+#ifndef __RDG_VARS
+
+#define __RDG_VARS
+
 // Dev mode?
 int dev = false;
 
@@ -67,3 +73,7 @@ GtkComboBoxText *experienceInput;
 GtkComboBoxText *bppInput;
 
 GtkLabel    *devMode;
+
+pthread_t t_update;
+
+#endif

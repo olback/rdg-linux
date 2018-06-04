@@ -27,3 +27,8 @@ install:
 
 uninstall:
 	rm $(INSTALL_PATH)
+
+update:
+	make build
+	make uninstall
+	make install

@@ -3,6 +3,8 @@
  *  github.com/olback/rdg-linux
  */
 
+#include "vars.h"
+
 void trimSpaces(char* source) {
     char* i = source;
     char* j = source;

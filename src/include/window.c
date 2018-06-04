@@ -3,6 +3,9 @@
  *  github.com/olback/rdg-linux
  */
 
+#include "vars.h"
+#include <gtk/gtk.h>
+
 void openDialog() {
     gtk_widget_show(dialog);
 }
@@ -21,20 +24,6 @@ void rdExists() {
 void closeRdesktopError() {
     gtk_widget_hide(rdesktopError);
 }
-
-// char *selfPath() {
-
-//     char path[PATH_MAX];
-//     char *dest = (char *)malloc(sizeof(char) * PATH_MAX);
-//     memset(dest, 0, sizeof(dest)); // readlink does not null terminate!
-//     pid_t pid = getpid();
-//     sprintf(path, "/proc/%d/exe", pid);
-//     if(readlink(path, dest, PATH_MAX) == -1){
-//         perror("readlink");
-//     }
-
-//     return dest;
-// }
 
 struct Version projectJSON() {
     char json[1024];
