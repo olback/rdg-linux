@@ -4,10 +4,14 @@
  */
 
 #include <gtk/gtk.h>
+#include <pthread.h>
 
 #ifndef __RDG_VARS
 
 #define __RDG_VARS
+
+#define false 0;
+#define true 1;
 
 // Dev mode?
 int dev = false;
@@ -19,6 +23,9 @@ struct Version {
     char name[16];
     double version;
     char type[8];
+    char project_url[255];
+    char update_url[255];
+    char issue_url[255];
 };
 
 // Define terminal colors
@@ -53,6 +60,7 @@ GtkBuilder  *builder;
 GtkWidget   *window;
 GtkWidget   *dialog;
 GtkWidget   *rdesktopError;
+GtkAboutDialog *about;
 
 GtkEntry    *ipEntryA; // "ipEntry" is pre-defined on some systems.
 GtkEntry    *portEntry;

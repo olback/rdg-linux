@@ -8,12 +8,12 @@
 #include <string.h>
 #include <unistd.h>
 #include <gtk/gtk.h>
-#include "lib/cJSON.c"
+#include <pthread.h>
 #include "include/vars.h"
 #include "include/connect.c"
 #include "include/window.c"
 #include "include/resources.c"
-// #include "include/update.c"
+#include "include/update.c"
 
 int main(int argc, char *argv[])
 {
@@ -38,6 +38,8 @@ int main(int argc, char *argv[])
     builder = gtk_builder_new();
     gtk_builder_add_from_resource(builder, "/net/olback/rdg/src/layout/rdg.glade", NULL);
 
+    about = GTK_ABOUT_DIALOG(gtk_builder_get_object(builder, "about"));
+    
     window = GTK_WIDGET(gtk_builder_get_object(builder, "main"));
     ipEntryA = GTK_ENTRY(gtk_builder_get_object(builder, "ip"));
     portEntry = GTK_ENTRY(gtk_builder_get_object(builder, "port"));
@@ -73,7 +75,7 @@ int main(int argc, char *argv[])
 
     gtk_widget_show(window);
 
-    // checkUpdates();
+    pthread_create(&t_update, NULL, checkUpdates, (void*) "check for updates"); // Check for updates in new thread.
 
     rdExists();
 

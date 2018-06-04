@@ -3,39 +3,33 @@
  */
 
 #include "vars.h"
+#include <pthread.h>
 #include <gtk/gtk.h>
 #include <curl/curl.h>
+#include <libnotify/notify.h>
 
-// int updatePressed = FALSE; // Prevent user from spamming the update button
-// int updateAvailable = FALSE;
-// void runUpdate()
-// {
-//     if(!updatePressed && updateAvailable) {
-//         printf("Running update...\n");
-//         system("xdg-open https://github.com/olback/git-gud/blob/master/UPDATE.md");
-//         updatePressed = TRUE;
-//     }
+void runUpdate() {
+    struct Version v = projectJSON(NULL);
+    char updateCommand[354];
+    sprintf(updateCommand, "xdg-open %s", v.update_url);
+    system(updateCommand);
+}
 
-// }
+void notifyUpdate(struct Version v)
+{
+    char notifyMsg[128];
+    sprintf(notifyMsg, "%s %1.1f %s", "Update", v.version, "available!");
 
-// void notifyUpdate()
-// {
-//     if(!devMode) {
-//         char notifyMsg[128];
-//         sprintf(notifyMsg, "%s%s%s", "Update ", remoteVersion, " available!");
+    notify_init(v.name);
+    NotifyNotification *n = notify_notification_new (v.name, notifyMsg, "package-x-generic");
+    notify_notification_add_action(n, v.name, "Update", NOTIFY_ACTION_CALLBACK(runUpdate), NULL, NULL);
+    notify_notification_set_hint_string(n, v.name, notifyMsg);
+    notify_notification_set_timeout(n, 5000); // 5 seconds
 
-//         notify_init(windowTitle);
-//         //NotifyNotification *n = notify_notification_new (windowTitle, notifyMsg, "git");
-//         NotifyNotification *n = notify_notification_new (windowTitle, notifyMsg, "git");
-//         notify_notification_add_action(n, windowTitle, "Update", NOTIFY_ACTION_CALLBACK(runUpdate), NULL, NULL);
-//         notify_notification_set_hint_string(n, windowTitle, notifyMsg);
-//         notify_notification_set_timeout(n, 5000); // 5 seconds
-
-//         if (!notify_notification_show(n, NULL)) {
-//             printf("Failed to show notification\n");
-//         }
-//     }
-// }
+    if (!notify_notification_show(n, NULL)) {
+        printf("Failed to show notification\n");
+    }
+}
 
 /* function prototypes to define later */
 char *do_web_request(char *url);
@@ -46,29 +40,39 @@ size_t static write_callback_func(void *buffer,
 
 void *checkUpdates()
 {
+    if(dev) {
+        printf("%sNot cheking for updates in dev mode!%s\n", KYEL, KNRM);
+        pthread_join(t_update, NULL);
+        return NULL;
+    }
+
     sleep(1);
-    char *url = "https://raw.githubusercontent.com/olback/rdg-linux/release/project.json";
+    char *url = "https://raw.githubusercontent.com/olback/rdg-linux/master/project.json";
     char *content = NULL;
 
     content = do_web_request(url);
+
     if(content != NULL) {
-        // content[strcspn(content, "\n")] = 0;
-        // sprintf(remoteVersion, "%s", content);
 
-        // struct Version v = projectJSON(NULL);
-        // printf("%s\n", v.version);
+        struct Version vl = projectJSON(NULL);
+        printf("Local version: %1.1f\n", vl.version);
 
+        struct Version vr = projectJSON(content);
+        printf("\nRemote version: %1.1f\n", vr.version);
 
-        // if(strcmp(localVersion, remoteVersion) == 0) {
-        //     printf("%s%sRunning latest version%s\n", KBLD, KGRN, KNRM);
-        // } else {
-        //     printf("%s%sUpdate %s available%s\n", KBLD, KYEL, remoteVersion, KNRM);
-        //     updateAvailable = TRUE;
-        //     notifyUpdate();
-        // }
+        if(vl.version >= vr.version) {
+            printf("%sRunning latest version%s\n", KGRN, KNRM);
+        } else {
+            printf("%sUpdate available%s\n", KYEL, KNRM);
+            notifyUpdate(vr);
+        }
+
     } else {
-        printf("%sFailed to check for updates. Check your connection.%s\n", KYEL, KNRM);
+
+        printf("%sFailed to check for updates. Check your connection.%s\n", KRED, KNRM);
+
     }
+
     pthread_join(t_update, NULL);
     return NULL;
 }
@@ -78,10 +82,12 @@ char *do_web_request(char *url)
 {
     /* keeps the handle to the curl object */
     CURL *curl_handle = NULL;
+    CURLcode res;
+
     /* to keep the response */
     char *response = NULL;
 
-    char ua = "rdg-linux updater";
+    char ua[] = "rdg-linux updater";
 
     /* initializing curl and setting the url */
     curl_handle = curl_easy_init();
@@ -98,8 +104,20 @@ char *do_web_request(char *url)
     /* passing the pointer to the response as the callback parameter */
     curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, &response);
 
+    long int response_code;
+
     /* perform the request */
-    curl_easy_perform(curl_handle);
+    res = curl_easy_perform(curl_handle);
+
+    // if(res == CURLE_OK) {
+    //     curl_easy_getinfo(curl_handle, CURLINFO_RESPONSE_CODE, &response_code);
+    // } else {
+    //     response = NULL;
+    // }
+
+    if(res != CURLE_OK) {
+        response = NULL;
+    }
 
     /* cleaning all curl stuff */
     curl_easy_cleanup(curl_handle);
