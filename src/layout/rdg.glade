@@ -673,30 +673,6 @@ The special value `none' can be used instead of a keyboard map. In this case, rd
       </object>
     </child>
   </object>
-  <object class="GtkPopoverMenu" id="popoverMenu">
-    <property name="can_focus">False</property>
-    <property name="modal">False</property>
-    <child>
-      <object class="GtkListBox">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <child>
-          <object class="GtkListBoxRow" id="pop_about">
-            <property name="width_request">100</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <child>
-              <placeholder/>
-            </child>
-          </object>
-        </child>
-      </object>
-      <packing>
-        <property name="submenu">main</property>
-        <property name="position">1</property>
-      </packing>
-    </child>
-  </object>
   <object class="GtkWindow" id="rdesktopError">
     <property name="width_request">330</property>
     <property name="height_request">218</property>

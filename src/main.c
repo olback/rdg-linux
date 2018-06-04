@@ -13,10 +13,11 @@
 #include "include/connect.c"
 #include "include/window.c"
 #include "include/resources.c"
+// #include "include/update.c"
 
 int main(int argc, char *argv[])
 {
-    struct Version v = projectJSON();
+    struct Version v = projectJSON(NULL);
     char title[64];
 
     if(strcmp(v.type, "dev") == 0) {
@@ -71,6 +72,8 @@ int main(int argc, char *argv[])
     }
 
     gtk_widget_show(window);
+
+    // checkUpdates();
 
     rdExists();
 
