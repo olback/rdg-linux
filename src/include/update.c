@@ -55,10 +55,10 @@ void *checkUpdates()
     if(content != NULL) {
 
         struct Version vl = projectJSON(NULL);
-        printf("Local version: %1.1f\n", vl.version);
+        printf("\nLocal version: %1.1f\n", vl.version);
 
         struct Version vr = projectJSON(content);
-        printf("\nRemote version: %1.1f\n", vr.version);
+        printf("Remote version: %1.1f\n", vr.version);
 
         if(vl.version >= vr.version) {
             printf("%sRunning latest version%s\n", KGRN, KNRM);
@@ -82,7 +82,6 @@ char *do_web_request(char *url)
 {
     /* keeps the handle to the curl object */
     CURL *curl_handle = NULL;
-    CURLcode res;
 
     /* to keep the response */
     char *response = NULL;
@@ -107,17 +106,7 @@ char *do_web_request(char *url)
     long int response_code;
 
     /* perform the request */
-    res = curl_easy_perform(curl_handle);
-
-    // if(res == CURLE_OK) {
-    //     curl_easy_getinfo(curl_handle, CURLINFO_RESPONSE_CODE, &response_code);
-    // } else {
-    //     response = NULL;
-    // }
-
-    if(res != CURLE_OK) {
-        response = NULL;
-    }
+    curl_easy_perform(curl_handle);
 
     /* cleaning all curl stuff */
     curl_easy_cleanup(curl_handle);
