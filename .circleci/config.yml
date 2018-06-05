@@ -15,8 +15,10 @@ jobs:
           name: Checksum
           command: sha512sum -c sha512.sum
       - store_artifacts:
-          path: rdg
-          prefix: rdg-binary
+          name: Store rdg binary
+          path: rdg.out
+          prefix: rdg.bin
       - store_artifacts:
+          name: Store sha512 checksum of rdg.out
           path: sha512.sum
           prefix: rdg-checksum
