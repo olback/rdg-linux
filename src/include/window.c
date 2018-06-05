@@ -5,7 +5,8 @@
 
 #include "vars.h"
 #include <gtk/gtk.h>
-#include <cjson/cJSON.h>
+// #include <cjson/cJSON.h>
+#include "../lib/cJSON.c"
 
 void openDialog() {
     gtk_widget_show(dialog);
