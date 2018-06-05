@@ -305,15 +305,167 @@ Author: olback
       </object>
     </child>
   </object>
-  <object class="GtkImage" id="header_icon">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="resource">/net/olback/rdg/src/img/icon_24.png</property>
-  </object>
   <object class="GtkImage" id="image1">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="stock">gtk-add</property>
+  </object>
+  <object class="GtkWindow" id="rdesktopError">
+    <property name="width_request">330</property>
+    <property name="height_request">218</property>
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">rdesktop not found</property>
+    <property name="resizable">False</property>
+    <property name="modal">True</property>
+    <property name="window_position">center</property>
+    <property name="default_width">330</property>
+    <property name="default_height">150</property>
+    <property name="icon_name">dialog-error</property>
+    <property name="type_hint">dialog</property>
+    <property name="skip_taskbar_hint">True</property>
+    <property name="skip_pager_hint">True</property>
+    <property name="urgency_hint">True</property>
+    <property name="gravity">center</property>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
+    <child>
+      <object class="GtkFixed">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GtkButton">
+            <property name="label" translatable="yes">OK</property>
+            <property name="width_request">100</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="margin_bottom">18</property>
+            <signal name="clicked" handler="closeRdesktopError" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">115</property>
+            <property name="y">170</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkImage">
+            <property name="width_request">60</property>
+            <property name="height_request">60</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="pixel_size">60</property>
+            <property name="icon_name">dialog-error</property>
+            <property name="icon_size">6</property>
+          </object>
+          <packing>
+            <property name="x">18</property>
+            <property name="y">18</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="width_request">221</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="app_paintable">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_right">18</property>
+            <property name="label" translatable="yes">Could not find the rdesktop binary.
+Please make sure you have it
+installed and permission to run it.</property>
+            <property name="xalign">0.5</property>
+            <property name="yalign">0.5</property>
+          </object>
+          <packing>
+            <property name="x">90</property>
+            <property name="y">9</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLinkButton" id="rdesktopErrorLabel">
+            <property name="label" translatable="yes">here</property>
+            <property name="width_request">55</property>
+            <property name="height_request">28</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="tooltip_text" translatable="yes">https://github.com/olback/rdg-linux/issues</property>
+            <property name="relief">none</property>
+            <property name="uri">https://github.com/olback/rdg-linux/issues</property>
+          </object>
+          <packing>
+            <property name="x">163</property>
+            <property name="y">126</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="width_request">200</property>
+            <property name="height_request">60</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Do you have rdesktop installed
+but still get this error? Please
+open a ticket</property>
+          </object>
+          <packing>
+            <property name="x">90</property>
+            <property name="y">92</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkAboutDialog" id="about">
+    <property name="can_focus">False</property>
+    <property name="window_position">center</property>
+    <property name="destroy_with_parent">True</property>
+    <property name="icon_name">dialog-information</property>
+    <property name="type_hint">dialog</property>
+    <property name="gravity">center</property>
+    <property name="transient_for">main</property>
+    <property name="program_name">rdg GUI</property>
+    <property name="version">null</property>
+    <property name="copyright" translatable="yes">olback © 2018</property>
+    <property name="comments" translatable="yes">A simple user interface for rdesktop</property>
+    <property name="website">https://github.com/olback/rdg-linux</property>
+    <property name="website_label" translatable="yes">Website</property>
+    <property name="authors">olback</property>
+    <property name="logo">resource:///net/olback/rdg/src/img/icon_100.png</property>
+    <property name="license_type">gpl-3-0</property>
+    <signal name="delete-event" handler="about_close" swapped="no"/>
+    <child>
+      <placeholder/>
+    </child>
+    <child internal-child="vbox">
+      <object class="GtkBox">
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox">
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+      </object>
+    </child>
   </object>
   <object class="GtkWindow" id="main">
     <property name="name">main</property>
@@ -337,13 +489,19 @@ Author: olback
         <property name="subtitle" translatable="yes">Connect via RDP</property>
         <property name="show_close_button">True</property>
         <child>
-          <object class="GtkButton" id="headerButton">
+          <object class="GtkMenuButton" id="headerButton">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
-            <property name="image">header_icon</property>
             <property name="relief">none</property>
-            <property name="always_show_image">True</property>
+            <property name="popover">popOver</property>
+            <child>
+              <object class="GtkImage">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="resource">/net/olback/rdg/src/img/icon_24.png</property>
+              </object>
+            </child>
           </object>
         </child>
       </object>
@@ -673,110 +831,107 @@ The special value `none' can be used instead of a keyboard map. In this case, rd
       </object>
     </child>
   </object>
-  <object class="GtkWindow" id="rdesktopError">
-    <property name="width_request">330</property>
-    <property name="height_request">218</property>
+  <object class="GtkPopover" id="popOver">
     <property name="can_focus">False</property>
-    <property name="title" translatable="yes">rdesktop not found</property>
-    <property name="resizable">False</property>
-    <property name="modal">True</property>
-    <property name="window_position">center</property>
-    <property name="default_width">330</property>
-    <property name="default_height">150</property>
-    <property name="icon_name">dialog-error</property>
-    <property name="type_hint">dialog</property>
-    <property name="skip_taskbar_hint">True</property>
-    <property name="skip_pager_hint">True</property>
-    <property name="urgency_hint">True</property>
-    <property name="gravity">center</property>
-    <child type="titlebar">
-      <placeholder/>
-    </child>
+    <property name="relative_to">headerButton</property>
     <child>
-      <object class="GtkFixed">
+      <object class="GtkListBox">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="margin_top">5</property>
+        <property name="margin_bottom">5</property>
         <child>
-          <object class="GtkButton">
-            <property name="label" translatable="yes">OK</property>
+          <object class="GtkListBoxRow">
             <property name="width_request">100</property>
-            <property name="height_request">30</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="margin_bottom">18</property>
-            <signal name="clicked" handler="closeRdesktopError" swapped="no"/>
+            <property name="selectable">False</property>
+            <child>
+              <object class="GtkButton">
+                <property name="label" translatable="yes">About</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="relief">none</property>
+                <signal name="clicked" handler="menu_about" swapped="no"/>
+              </object>
+            </child>
           </object>
-          <packing>
-            <property name="x">115</property>
-            <property name="y">170</property>
-          </packing>
         </child>
         <child>
-          <object class="GtkImage">
-            <property name="width_request">60</property>
-            <property name="height_request">60</property>
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="pixel_size">60</property>
-            <property name="icon_name">dialog-error</property>
-            <property name="icon_size">6</property>
-          </object>
-          <packing>
-            <property name="x">18</property>
-            <property name="y">18</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkLabel">
-            <property name="width_request">221</property>
-            <property name="height_request">80</property>
-            <property name="visible">True</property>
-            <property name="app_paintable">True</property>
-            <property name="can_focus">False</property>
-            <property name="margin_right">18</property>
-            <property name="label" translatable="yes">Could not find the rdesktop binary.
-Please make sure you have it
-installed and permission to run it.</property>
-            <property name="xalign">0.5</property>
-            <property name="yalign">0.5</property>
-          </object>
-          <packing>
-            <property name="x">90</property>
-            <property name="y">9</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkLinkButton" id="rdesktopErrorLabel">
-            <property name="label" translatable="yes">here</property>
-            <property name="width_request">55</property>
-            <property name="height_request">28</property>
+          <object class="GtkListBoxRow">
+            <property name="width_request">100</property>
+            <property name="height_request">24</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="tooltip_text" translatable="yes">https://github.com/olback/rdg-linux/issues</property>
-            <property name="relief">none</property>
-            <property name="uri">https://github.com/olback/rdg-linux/issues</property>
+            <property name="selectable">False</property>
+            <child>
+              <object class="GtkButton">
+                <property name="label" translatable="yes">Help</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="relief">none</property>
+                <signal name="clicked" handler="menu_help" swapped="no"/>
+              </object>
+            </child>
           </object>
-          <packing>
-            <property name="x">163</property>
-            <property name="y">126</property>
-          </packing>
         </child>
         <child>
-          <object class="GtkLabel">
-            <property name="width_request">200</property>
-            <property name="height_request">60</property>
+          <object class="GtkListBoxRow">
+            <property name="width_request">100</property>
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Do you have rdesktop installed
-but still get this error? Please
-open a ticket</property>
+            <property name="can_focus">True</property>
+            <property name="selectable">False</property>
+            <child>
+              <object class="GtkButton">
+                <property name="label" translatable="yes">Update</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="relief">none</property>
+                <signal name="clicked" handler="runUpdate" swapped="no"/>
+              </object>
+            </child>
           </object>
-          <packing>
-            <property name="x">90</property>
-            <property name="y">92</property>
-          </packing>
+        </child>
+        <child>
+          <object class="GtkListBoxRow">
+            <property name="width_request">100</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="selectable">False</property>
+            <child>
+              <object class="GtkButton">
+                <property name="label" translatable="yes">Extra Args</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="relief">none</property>
+                <signal name="clicked" handler="openDialog" swapped="no"/>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkListBoxRow">
+            <property name="width_request">100</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="selectable">False</property>
+            <child>
+              <object class="GtkButton">
+                <property name="label" translatable="yes">Quit</property>
+                <property name="width_request">100</property>
+                <property name="height_request">0</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="relief">none</property>
+                <signal name="clicked" handler="gtk_main_quit" swapped="no"/>
+              </object>
+            </child>
+          </object>
         </child>
       </object>
     </child>

@@ -1,5 +1,10 @@
+#
+#	rdg-linux © olback 2018
+#
+
 CC = gcc
-CFLAGS = -Wall -rdynamic `pkg-config --cflags --libs gtk+-3.0`
+# CFLAGS = -Wall -rdynamic -lpthread `pkg-config --cflags --libs libcjson libcurl libnotify gtk+-3.0`
+CFLAGS = -Wall -rdynamic -lpthread `pkg-config --cflags --libs libcurl libnotify gtk+-3.0`
 OUT_FILE = rdg.out
 SOURCE = src/main.c
 RESOURCE_TARGET = src/include/resources.c

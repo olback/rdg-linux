@@ -5,6 +5,7 @@
         <file>src/img/icon.png</file>
         <file>src/img/icon_24.png</file>
         <file>src/img/icon_66.png</file>
+        <file>src/img/icon_100.png</file>
         <file>project.json</file>
     </gresource>
 </gresources>
