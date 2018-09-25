@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "gtk.h": "c"
+        "gtk.h": "c",
+        "vars.h": "c"
     }
 }
