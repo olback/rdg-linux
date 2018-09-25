@@ -8,56 +8,68 @@
 // #include <cjson/cJSON.h>
 #include "../lib/cJSON.c"
 
-void openDialog() {
+struct Version projectJSON(char jsonIn[]);
+
+void openDialog()
+{
     gtk_widget_show(dialog);
 }
 
-void closeDialog() {
+void closeDialog()
+{
     gtk_widget_hide(dialog);
 }
 
-struct Version projectJSON(char jsonIn[]);
-
-void menu_about() {
+void menu_about()
+{
     char vString[5];
     struct Version v = projectJSON(NULL);
     sprintf(vString, "%1.1f", v.version);
 
     gtk_about_dialog_set_program_name(about, v.name);
     gtk_about_dialog_set_version(about, vString);
-    gtk_about_dialog_set_website (about, v.project_url);
+    gtk_about_dialog_set_website(about, v.project_url);
     gtk_widget_show(GTK_WIDGET(about));
 }
 
-void about_close() {
+void about_close()
+{
     gtk_widget_hide(GTK_WIDGET(about));
 }
 
-void menu_help() {
+void menu_help()
+{
     struct Version v = projectJSON(NULL);
     char updateCommand[354];
     sprintf(updateCommand, "xdg-open %s", v.issue_url);
     system(updateCommand);
 }
 
-void rdExists() {
-    if(access(rdPath, R_OK) == -1) {
+void rdExists()
+{
+    if (access(rdPath, R_OK) == -1)
+    {
         printf("Could not find rdesktop, make sure you have it installed.\n");
         gtk_widget_show(rdesktopError);
     }
 }
 
-void closeRdesktopError() {
+void closeRdesktopError()
+{
     gtk_widget_hide(rdesktopError);
 }
 
-struct Version projectJSON(char jsonIn[]) {
+struct Version projectJSON(char jsonIn[])
+{
 
     char json[4096];
 
-    if (jsonIn != NULL) {
+    if (jsonIn != NULL)
+    {
         sprintf(json, "%s", jsonIn);
-    } else {
+    }
+    else
+    {
         GInputStream *json_stream = g_resources_open_stream("/net/olback/rdg/project.json", G_RESOURCE_LOOKUP_FLAGS_NONE, NULL);
         g_input_stream_read(json_stream, json, 1024, NULL, NULL);
     }
@@ -71,7 +83,8 @@ struct Version projectJSON(char jsonIn[]) {
 
     cJSON *data = cJSON_Parse(json);
 
-    if(data == NULL) {
+    if (data == NULL)
+    {
         printf("%s%sError parsing json%s\n", KRED, KBLD, KNRM);
         exit(-1);
     }

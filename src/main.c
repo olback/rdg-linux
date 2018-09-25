@@ -20,26 +20,30 @@ int main(int argc, char *argv[])
     struct Version v = projectJSON(NULL);
     char title[64];
 
-    if(strcmp(v.type, "dev") == 0) {
+    if (strcmp(v.type, "dev") == 0)
+    {
         sprintf(title, "%s %1.1f DEV", v.name, v.version);
         dev = 1;
-    } else {
+    }
+    else
+    {
         sprintf(title, "%s %1.1f", v.name, v.version);
-        if(argc == 1) {
+        if (argc == 1)
+        {
             char startString[PATH_MAX];
             sprintf(startString, "%s -start & disown", argv[0]);
             system(startString);
             exit(0);
         }
     }
-    
+
     gtk_init(&argc, &argv);
 
     builder = gtk_builder_new();
     gtk_builder_add_from_resource(builder, "/net/olback/rdg/src/layout/rdg.glade", NULL);
 
     about = GTK_ABOUT_DIALOG(gtk_builder_get_object(builder, "about"));
-    
+
     window = GTK_WIDGET(gtk_builder_get_object(builder, "main"));
     ipEntryA = GTK_ENTRY(gtk_builder_get_object(builder, "ip"));
     portEntry = GTK_ENTRY(gtk_builder_get_object(builder, "port"));
@@ -69,13 +73,14 @@ int main(int argc, char *argv[])
 
     gtk_window_set_title(GTK_WINDOW(window), title);
 
-    if(dev) {
+    if (dev)
+    {
         gtk_label_set_text(GTK_LABEL(devMode), "DEV MODE");
     }
 
     gtk_widget_show(window);
 
-    pthread_create(&t_update, NULL, checkUpdates, (void*) "check for updates"); // Check for updates in new thread.
+    pthread_create(&t_update, NULL, checkUpdates, (void *)"check for updates"); // Check for updates in new thread.
 
     rdExists();
 

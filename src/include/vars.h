@@ -19,7 +19,8 @@ int dev = false;
 // Path to rDesktop binary
 const char rdPath[] = "/usr/bin/rdesktop";
 
-struct Version {
+struct Version
+{
     char name[16];
     double version;
     char type[8];
@@ -29,15 +30,15 @@ struct Version {
 };
 
 // Define terminal colors
-#define KNRM  "\x1B[0m"
-#define KRED  "\x1B[31m"
-#define KGRN  "\x1B[32m"
-#define KYEL  "\x1B[33m"
-#define KBLU  "\x1B[34m"
-#define KMAG  "\x1B[35m"
-#define KCYN  "\x1B[36m"
-#define KWHT  "\x1B[37m"
-#define KBLD  "\x1B[1m"
+#define KNRM "\x1B[0m"
+#define KRED "\x1B[31m"
+#define KGRN "\x1B[32m"
+#define KYEL "\x1B[33m"
+#define KBLU "\x1B[34m"
+#define KMAG "\x1B[35m"
+#define KCYN "\x1B[36m"
+#define KWHT "\x1B[37m"
+#define KBLD "\x1B[1m"
 
 // Global variables bla bla don't care.
 char ip[16];
@@ -55,32 +56,32 @@ int allowConnect = 0;
 char connectString[2048];
 char rdgPath[PATH_MAX];
 
-GtkBuilder  *builder;
+GtkBuilder *builder;
 
-GtkWidget   *window;
-GtkWidget   *dialog;
-GtkWidget   *rdesktopError;
+GtkWidget *window;
+GtkWidget *dialog;
+GtkWidget *rdesktopError;
 GtkAboutDialog *about;
 
-GtkEntry    *ipEntryA; // "ipEntry" is pre-defined on some systems.
-GtkEntry    *portEntry;
-GtkEntry    *widthEntry;
-GtkEntry    *heightEntry;
-GtkEntry    *usernameEntry;
-GtkEntry    *domainEntry;
-GtkEntry    *extraArgsEntry;
+GtkEntry *ipEntryA; // "ipEntry" is pre-defined on some systems.
+GtkEntry *portEntry;
+GtkEntry *widthEntry;
+GtkEntry *heightEntry;
+GtkEntry *usernameEntry;
+GtkEntry *domainEntry;
+GtkEntry *extraArgsEntry;
 
-GtkSwitch   *fullscreenSwitch;
-GtkSwitch   *encryptionSwitch;
-GtkSwitch   *compressionSwitch;
-GtkSwitch   *bitmapSwitch;
-GtkSwitch   *numlockSync;
+GtkSwitch *fullscreenSwitch;
+GtkSwitch *encryptionSwitch;
+GtkSwitch *compressionSwitch;
+GtkSwitch *bitmapSwitch;
+GtkSwitch *numlockSync;
 
 GtkComboBoxText *keymapInput;
 GtkComboBoxText *experienceInput;
 GtkComboBoxText *bppInput;
 
-GtkLabel    *devMode;
+GtkLabel *devMode;
 
 pthread_t t_update;
 
