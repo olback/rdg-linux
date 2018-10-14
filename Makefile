@@ -16,6 +16,7 @@ build:
 	$(CC) -o $(OUT_FILE) $(SOURCE) $(CFLAGS)
 	sha512sum $(OUT_FILE) > sha512.sum
 	make clean
+	@echo "Done!"
 
 run:
 	make build
@@ -28,12 +29,16 @@ clean:
 	rm $(RESOURCE_TARGET)
 
 install:
-	cp $(OUT_FILE) $(INSTALL_PATH)
+	sudo cp $(OUT_FILE) $(INSTALL_PATH)
+	@echo "Done installing"
 
 uninstall:
-	rm $(INSTALL_PATH)
+	sudo rm $(INSTALL_PATH)
+	@echo "Done uninstalling"
 
 update:
+	git pull
 	make build
 	make uninstall
 	make install
+	@echo "Done updating!"
