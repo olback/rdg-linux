@@ -30,11 +30,15 @@ clean:
 
 install:
 	sudo cp $(OUT_FILE) $(INSTALL_PATH)
+	@echo "Done installing"
 
 uninstall:
 	sudo rm $(INSTALL_PATH)
+	@echo "Done uninstalling"
 
 update:
+	git pull
 	make build
 	make uninstall
 	make install
+	@echo "Done updating!"
