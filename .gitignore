@@ -58,3 +58,6 @@ src/layout/rdg.glade~
 src/include/resources.c
 rdg
 sha512.sum
+
+# vscode
+.vscode/ipch/
