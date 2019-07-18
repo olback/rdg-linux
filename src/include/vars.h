@@ -14,7 +14,7 @@
 #define true 1;
 
 // Dev mode?
-int dev = false;
+int dev = true;
 
 // Path to rDesktop binary
 const char rdPath[] = "/usr/bin/rdesktop";
@@ -41,7 +41,7 @@ struct Version
 #define KBLD "\x1B[1m"
 
 // Global variables bla bla don't care.
-char ip[16];
+char ip[255];
 char port[6];
 char keymap[16];
 char width[5];

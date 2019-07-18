@@ -140,13 +140,13 @@ Author: olback
         </child>
         <child>
           <object class="GtkSwitch" id="fullscreen">
-            <property name="width_request">110</property>
+            <property name="width_request">60</property>
             <property name="height_request">30</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
           </object>
           <packing>
-            <property name="x">312</property>
+            <property name="x">337</property>
             <property name="y">90</property>
           </packing>
         </child>
@@ -200,13 +200,13 @@ Author: olback
         </child>
         <child>
           <object class="GtkSwitch" id="encryption">
-            <property name="width_request">110</property>
+            <property name="width_request">60</property>
             <property name="height_request">30</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
           </object>
           <packing>
-            <property name="x">312</property>
+            <property name="x">337</property>
             <property name="y">126</property>
           </packing>
         </child>
@@ -226,14 +226,14 @@ Author: olback
         </child>
         <child>
           <object class="GtkSwitch" id="compression">
-            <property name="width_request">110</property>
+            <property name="width_request">60</property>
             <property name="height_request">30</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="halign">end</property>
           </object>
           <packing>
-            <property name="x">312</property>
+            <property name="x">337</property>
             <property name="y">162</property>
           </packing>
         </child>
@@ -253,13 +253,13 @@ Author: olback
         </child>
         <child>
           <object class="GtkSwitch" id="cacheBitmaps">
-            <property name="width_request">110</property>
+            <property name="width_request">60</property>
             <property name="height_request">30</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
           </object>
           <packing>
-            <property name="x">312</property>
+            <property name="x">337</property>
             <property name="y">198</property>
           </packing>
         </child>
@@ -279,13 +279,13 @@ Author: olback
         </child>
         <child>
           <object class="GtkSwitch" id="numlockSync">
-            <property name="width_request">110</property>
+            <property name="width_request">60</property>
             <property name="height_request">30</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
           </object>
           <packing>
-            <property name="x">312</property>
+            <property name="x">337</property>
             <property name="y">234</property>
           </packing>
         </child>
@@ -627,8 +627,8 @@ The special value `none' can be used instead of a keyboard map. In this case, rd
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="tooltip_text" translatable="yes">The IP address to your target.</property>
-            <property name="max_length">15</property>
-            <property name="width_chars">14</property>
+            <property name="max_length">255</property>
+            <property name="width_chars">20</property>
             <property name="max_width_chars">15</property>
             <property name="placeholder_text" translatable="yes">192.168.0.15</property>
           </object>
