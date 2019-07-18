@@ -14,7 +14,7 @@
 #define true 1;
 
 // Dev mode?
-int dev = true;
+int dev = false;
 
 // Path to rDesktop binary
 const char rdPath[] = "/usr/bin/rdesktop";
