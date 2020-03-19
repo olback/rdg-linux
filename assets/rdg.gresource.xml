@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+    <gresource prefix="/net/olback/rdg">
+        <!-- UI -->
+        <file alias="ui" preprocess="xml-stripblanks">out/rdg.glade</file>
+
+        <!-- Logo / Icon -->
+        <file alias="icons/net.olback.rdg.png">assets/net.olback.rdg.png</file>
+    </gresource>
+</gresources>

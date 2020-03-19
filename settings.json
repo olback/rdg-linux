@@ -1,0 +1,5 @@
+{
+    "allow_invalid_cert": true,
+    "rdesktop_path": "/usr/bin/rdesktop",
+    "keymap_path": "/usr/share/rdesktop/keymaps"
+}
