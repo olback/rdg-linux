@@ -12,10 +12,56 @@
     <property name="can_focus">False</property>
     <property name="icon_name">go-previous</property>
   </object>
+  <object class="GtkAboutDialog" id="about_dialog">
+    <property name="can_focus">False</property>
+    <property name="type_hint">dialog</property>
+    <property name="transient_for">main_window</property>
+    <property name="attached_to">main_window</property>
+    <property name="program_name">rDesktop GUI</property>
+    <property name="version">{version}</property>
+    <property name="copyright" translatable="yes">Edwin Svensson © 2020</property>
+    <property name="website">https://github.com/olback/rdg-linux</property>
+    <property name="website_label" translatable="yes">rdesktop GUI on Github</property>
+    <property name="authors">Edwin Svensson</property>
+    <property name="logo_icon_name">net.olback.rdg</property>
+    <property name="license_type">gpl-3-0</property>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
+    <child internal-child="vbox">
+      <object class="GtkBox">
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox">
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+      </object>
+    </child>
+  </object>
   <object class="GtkWindow" id="extra_args_window">
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">Extra rdesktop arguments</property>
     <property name="default_width">440</property>
+    <property name="transient_for">main_window</property>
+    <property name="attached_to">main_window</property>
     <child type="titlebar">
       <placeholder/>
     </child>
@@ -266,50 +312,6 @@
       </object>
     </child>
   </object>
-  <object class="GtkAboutDialog" id="about_dialog">
-    <property name="can_focus">False</property>
-    <property name="type_hint">dialog</property>
-    <property name="transient_for">main_window</property>
-    <property name="attached_to">main_window</property>
-    <property name="program_name">rDesktop GUI</property>
-    <property name="version">3.0-{githash}-dev</property>
-    <property name="copyright" translatable="yes">Edwin Svensson © 2020</property>
-    <property name="website">https://github.com/olback/rdg-linux</property>
-    <property name="website_label" translatable="yes">rDesktop GUI on Github</property>
-    <property name="authors">Edwin Svensson</property>
-    <property name="logo_icon_name">image-missing</property>
-    <property name="license_type">gpl-3-0</property>
-    <child type="titlebar">
-      <placeholder/>
-    </child>
-    <child internal-child="vbox">
-      <object class="GtkBox">
-        <property name="can_focus">False</property>
-        <property name="orientation">vertical</property>
-        <property name="spacing">2</property>
-        <child internal-child="action_area">
-          <object class="GtkButtonBox">
-            <property name="can_focus">False</property>
-            <property name="layout_style">end</property>
-            <child>
-              <placeholder/>
-            </child>
-            <child>
-              <placeholder/>
-            </child>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">False</property>
-            <property name="position">0</property>
-          </packing>
-        </child>
-        <child>
-          <placeholder/>
-        </child>
-      </object>
-    </child>
-  </object>
   <object class="GtkPopover" id="main_menu">
     <property name="can_focus">False</property>
     <property name="relative_to">menubutton1</property>
@@ -380,32 +382,14 @@
   </object>
   <object class="GtkApplicationWindow" id="main_window">
     <property name="can_focus">False</property>
+    <property name="icon_name">net.olback.rdg</property>
     <child type="titlebar">
-      <object class="GtkHeaderBar">
+      <object class="GtkHeaderBar" id="header_bar">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="title" translatable="yes">rDesktop GUI</property>
         <property name="subtitle" translatable="yes">Connect via RDP</property>
         <property name="show_close_button">True</property>
-        <child>
-          <object class="GtkStackSwitcher">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-          </object>
-          <packing>
-            <property name="position">1</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkStackSwitcher">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="stack">stack0</property>
-          </object>
-          <packing>
-            <property name="position">2</property>
-          </packing>
-        </child>
         <child>
           <object class="GtkMenuButton" id="menubutton1">
             <property name="visible">True</property>
@@ -434,7 +418,6 @@
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkInfoBar" id="info_bar">
-            <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="message_type">error</property>
             <property name="show_close_button">True</property>
@@ -535,13 +518,10 @@
                           <object class="GtkComboBoxText" id="host">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="has_default">True</property>
                             <property name="hexpand">True</property>
                             <property name="has_entry">True</property>
                             <items>
-                              <item translatable="yes">192.168.0.15</item>
-                              <item translatable="yes">192.168.1.135</item>
-                              <item translatable="yes">10.8.0.3</item>
+                              <item translatable="yes">192.168.0.112</item>
                             </items>
                             <child internal-child="entry">
                               <object class="GtkEntry" id="host_entry">
@@ -713,8 +693,8 @@
                             <property name="can_focus">False</property>
                             <property name="active">0</property>
                             <items>
-                              <item translatable="yes">en-us</item>
-                              <item translatable="yes">sv</item>
+                              <item id="en-us" translatable="yes">en-us</item>
+                              <item id="sv" translatable="yes">sv</item>
                             </items>
                           </object>
                           <packing>
@@ -854,7 +834,6 @@
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="halign">end</property>
-                        <property name="active">True</property>
                       </object>
                       <packing>
                         <property name="left_attach">1</property>
@@ -1028,7 +1007,20 @@
                       </packing>
                     </child>
                     <child>
-                      <placeholder/>
+                      <object class="GtkLabel">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="halign">start</property>
+                        <property name="label" translatable="yes">A restart of the application is needed
+for changes to take affect</property>
+                        <attributes>
+                          <attribute name="foreground" value="#88888a8a8585"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">4</property>
+                      </packing>
                     </child>
                   </object>
                   <packing>

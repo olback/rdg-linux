@@ -4,9 +4,9 @@ use dirs;
 use std::{fs, path::PathBuf};
 use crate::error::RdgResult;
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Settings {
-    pub allow_invalid_cert: bool,
+    pub allow_untrusted_cert: bool,
     pub rdesktop_path: PathBuf,
     pub keymap_path: PathBuf
 }
@@ -36,6 +36,22 @@ impl Settings {
 
     }
 
+    pub fn save(&self) -> RdgResult<()> {
+
+        let conf_dir = dirs::config_dir().expect("config dir does not exist").join("rdg");
+        let settings_path = conf_dir.join("settings.json");
+
+        if !conf_dir.exists() {
+            fs::create_dir_all(&conf_dir)?;
+        }
+
+        let settings_str = serde_json::to_string_pretty(&self)?;
+        fs::write(&settings_path, settings_str)?;
+
+        Ok(())
+
+    }
+
 }
 
 impl Default for Settings {
@@ -43,7 +59,7 @@ impl Default for Settings {
     fn default() -> Self {
 
         Self {
-            allow_invalid_cert: true,
+            allow_untrusted_cert: true,
             rdesktop_path: PathBuf::from("/usr/bin/rdesktop"),
             keymap_path: PathBuf::from("/usr/share/rdesktop/keymaps")
         }

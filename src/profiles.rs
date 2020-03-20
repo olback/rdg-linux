@@ -4,7 +4,7 @@ use std::{fs, collections::HashMap, path::PathBuf};
 use crate::{error::RdgResult, settings::Settings};
 use serde_json;
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Profile {
     pub host: String,
     pub port: u16,
@@ -93,7 +93,7 @@ impl Profile {
 
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Profiles {
     profiles: HashMap<String, Profile>,
     path: PathBuf
@@ -125,9 +125,9 @@ impl Profiles {
 
     }
 
-    pub fn insert(&mut self, key: String, profile: Profile) -> RdgResult<()> {
+    pub fn insert(&mut self, profile: Profile) -> RdgResult<()> {
 
-        self.profiles.insert(key, profile);
+        self.profiles.insert(profile.host.clone(), profile);
         self.save()?;
         Ok(())
 
@@ -136,6 +136,12 @@ impl Profiles {
     pub fn get<K: Into<String>>(&self, key: K) -> Option<&Profile> {
 
         self.profiles.get(&key.into())
+
+    }
+
+    pub fn iter(&self) -> std::collections::hash_map::Iter<String, Profile> {
+
+        self.profiles.iter()
 
     }
 

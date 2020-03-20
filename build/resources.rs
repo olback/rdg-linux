@@ -3,8 +3,8 @@ use std::process::Command;
 pub fn generate_resources() {
 
     const COMMAND: &str = "glib-compile-resources";
-    const INPUT: &str = "assets/barium.gresource.xml";
-    const TARGET: &str = "barium.gresource";
+    const INPUT: &str = "assets/rdg.gresource.xml";
+    const TARGET: &str = "rdg.gresource";
 
     let exists = Command::new("which").arg(COMMAND).output().unwrap();
     if !exists.status.success() {

@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=rdesktop GUI
+Exec=/usr/bin/rdg
+Icon=net.olback.rdg
+Type=Application
+Categories=GTK;GNOME;Utility;

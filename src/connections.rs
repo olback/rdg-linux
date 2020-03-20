@@ -1,6 +1,5 @@
 use std::{
     sync::{
-        mpsc,
         Arc,
         atomic::{
             AtomicU8,
@@ -40,12 +39,12 @@ impl Connections {
 
     }
 
-    pub fn connect(&self, profile: &Profile, settings: &Settings) -> JoinHandle<ExitStatus> {
+    pub fn connect(&self, profile: &Profile, settings: &Settings, tx: glib::Sender<()>) -> JoinHandle<ExitStatus> {
 
         self.count.fetch_add(1, Ordering::SeqCst);
 
         let p_args = profile.get_connect_args(&settings);
-        let allow_invalid = settings.allow_invalid_cert;
+        let allow_untrusted_cert = settings.allow_untrusted_cert;
         let rdesktop_path = settings.rdesktop_path.clone();
         let count = Arc::clone(&self.count);
 
@@ -66,12 +65,10 @@ impl Connections {
                 let stderr = child.stderr.as_mut().unwrap();
                 stderr.read(&mut buf[..]).unwrap();
 
-                println!("{}", String::from_utf8_lossy(&buf[..]));
-
                 let cert_error = String::from_utf8_lossy(&buf[..]).contains("ATTENTION!");
-                if cert_error && allow_invalid {
+                if cert_error && allow_untrusted_cert {
                     child.stdin.as_mut().unwrap().write(b"yes\n").expect("failed to write to stdin");
-                } else if cert_error && !allow_invalid {
+                } else if cert_error && !allow_untrusted_cert {
                     child.stdin.as_mut().unwrap().write(b"no\n").expect("failed to write to stdin");
                 }
 
@@ -82,8 +79,8 @@ impl Connections {
                         match v {
 
                             Some(status) => {
-                                println!("Status: {}", status);
                                 count.fetch_sub(1, Ordering::SeqCst);
+                                drop(tx.send(()));
                                 return status;
                             },
 
@@ -102,6 +99,12 @@ impl Connections {
             }
 
         })
+
+    }
+
+    pub fn count(&self) -> Arc<AtomicU8> {
+
+        Arc::clone(&self.count)
 
     }
 
