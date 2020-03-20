@@ -76,6 +76,7 @@
           <object class="GtkLabel">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="tooltip_text" translatable="yes">Changes default bandwidth performance behaviour for RDP5. By default only theming is enabled, and all other options are disabled (corresponding to modem (56 Kbps)). Setting experience to broadband enables menu animations and full window dragging. Setting experience to lan will also enable the desktop wallpaper. Setting experience to modem disables all (including themes). Experience can also be a hexidecimal number containing the flags.</property>
             <property name="halign">start</property>
             <property name="hexpand">True</property>
             <property name="label" translatable="yes">Experience</property>
@@ -89,6 +90,7 @@
           <object class="GtkLabel">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="tooltip_text" translatable="yes">Sets the colour depth for the connection (8, 15, 16, 24 or 32). More than 8 bpp are only supported when connecting to Windows XP (up to 16 bpp) or newer. Note that the colour depth may also be limited by the server configuration. The default value is the depth of the root window.</property>
             <property name="halign">start</property>
             <property name="label" translatable="yes">Color depth</property>
           </object>
@@ -101,6 +103,7 @@
           <object class="GtkLabel">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="tooltip_text" translatable="yes">Enable fullscreen mode. This overrides the window manager and causes the rdesktop window to fully cover the current screen. Fullscreen mode can be toggled at any time using Ctrl-Alt-Enter.</property>
             <property name="halign">start</property>
             <property name="label" translatable="yes">Fullscreen</property>
           </object>
@@ -113,6 +116,7 @@
           <object class="GtkLabel">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="tooltip_text" translatable="yes">Disable encryption from client to server. This sends an encrypted login packet, but everything after this is unencrypted (including interactive logins).</property>
             <property name="halign">start</property>
             <property name="label" translatable="yes">Disable encryption</property>
           </object>
@@ -125,6 +129,7 @@
           <object class="GtkLabel">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="tooltip_text" translatable="yes">Enable compression of the RDP datastream.</property>
             <property name="halign">start</property>
             <property name="label" translatable="yes">Enable compression</property>
           </object>
@@ -137,6 +142,7 @@
           <object class="GtkLabel">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="tooltip_text" translatable="yes">Enable caching of bitmaps to disk (persistent bitmap caching). This generally improves performance (especially on low bandwidth connections) and reduces network traffic at the cost of slightly longer startup and some disk space. (10MB for 8-bit colour, 20MB for 15/16-bit colour, 30MB for 24-bit colour and 40MB for 32-bit colour sessions)</property>
             <property name="halign">start</property>
             <property name="label" translatable="yes">Cache bitmaps</property>
           </object>
@@ -149,6 +155,7 @@
           <object class="GtkLabel">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="tooltip_text" translatable="yes">Enable numlock syncronization between the Xserver and the remote RDP session. This is useful with applications that looks at the numlock state, but might cause problems with some Xservers like Xvnc.</property>
             <property name="halign">start</property>
             <property name="label" translatable="yes">Numlock syncronization</property>
           </object>
@@ -562,6 +569,7 @@
                       <object class="GtkLabel">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="tooltip_text" translatable="yes">Username for authentication on the server.</property>
                         <property name="halign">end</property>
                         <property name="margin_top">12</property>
                         <property name="label" translatable="yes">Username</property>
@@ -575,6 +583,7 @@
                       <object class="GtkLabel">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="tooltip_text" translatable="yes">Domain for authentication.</property>
                         <property name="halign">end</property>
                         <property name="label" translatable="yes">Domain</property>
                       </object>
@@ -621,6 +630,7 @@
                       <object class="GtkLabel">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="tooltip_text" translatable="yes">Keyboard layout to emulate. This requires a corresponding keymap file to be installed. The standard keymaps provided with rdesktop follow the RFC1766 naming scheme: a language code followed by a country code if necessary - e.g. en-us, en-gb, de, fr, sv, etc.</property>
                         <property name="halign">end</property>
                         <property name="label" translatable="yes">Keymap</property>
                       </object>
