@@ -6,7 +6,7 @@ use last_git_commit::{
 
 pub fn get_version() -> String {
 
-    let commit = LastGitCommit::new(None, Some("master")).unwrap().id.short();
+    let commit = LastGitCommit::new(None, Some("3.0")).unwrap().id.short();
     let cargo_version = env!("CARGO_PKG_VERSION");
 
     format!("{}-{}", cargo_version, commit)
