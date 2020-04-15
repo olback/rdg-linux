@@ -596,7 +596,7 @@ dependencies = [
 
 [[package]]
 name = "rdg"
-version = "3.0.1"
+version = "3.0.2"
 dependencies = [
  "dirs 2.0.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "gio 0.8.1 (registry+https://github.com/rust-lang/crates.io-index)",

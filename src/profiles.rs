@@ -32,26 +32,26 @@ impl Profile {
         // Username
         let username = self.username.trim();
         if !username.is_empty() {
-            args.push(format!("-u {}", username));
+            args.push(format!("-u{}", username));
         }
 
         // Domain
         let domain = self.domain.trim();
         if !domain.is_empty() {
-            args.push(format!("-d {}", domain));
+            args.push(format!("-d{}", domain));
         }
 
         // Window geometry
-        args.push(format!("-g {}x{}", self.width, self.height));
+        args.push(format!("-g{}x{}", self.width, self.height));
 
         // Keymap
-        args.push(format!("-k {}", settings.keymap_path.join(&self.keymap).display()));
+        args.push(format!("-k{}", settings.keymap_path.join(&self.keymap).display()));
 
         // Experience
-        args.push(format!("-x {}", self.experience));
+        args.push(format!("-x{}", self.experience));
 
         // Color depth
-        args.push(format!("-a {}", self.color_depth));
+        args.push(format!("-a{}", self.color_depth));
 
         // Fullscreen
         if self.fullscreen {
